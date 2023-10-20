@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "MyFile";
+    Layout = "~/Views/Shared/_Landing2.cshtml";
+}
+
+@*code for pop up window*@
+<div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h3 class="modal-title" >Please create a new file</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <partial name="~/Views/Medical_File/Create_File.cshtml" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+
+        <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a asp-action="Patient" asp-controller="FamilyPlan">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/FamPlan.png" width="200" height="135" />
+                    <div class="ms-3">
+                        <h4 class="mb-2">Family Planning<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+        <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a asp-action="Patient" asp-controller="Counseller">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/counselling.jpg" width="200" />
+                    <div class="ms-3">
+                        <h4 class="mb-2">Counselling<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
+
+
+        <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a asp-action="Patient" asp-controller="Vaccs">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Vacc.jpg" width="200" />
+                    <div class="ms-3">
+                        <h4 class="mb-2">Vaccination<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a asp-action="Patient" asp-controller="PreNatalCare">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/PreNat.jpg" width="200" height="135" />
+                    <div class="ms-3">
+                        <h4 class="mb-2">Pre-Natal Care<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+</div>

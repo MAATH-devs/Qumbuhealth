@@ -1,0 +1,90 @@
+﻿@*@
+{
+  
+    Layout = "/Views/Shared/_PreNatalCareLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Container with Nested Containers</title>
+<style>
+    /* Additional custom styles */
+    .custom-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .custom-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Make the image fill the container */
+        }
+
+    /* Custom width and height */
+    .custom-width {
+        width: 50%; /* Adjust as needed */
+    }
+
+    .custom-height {
+        height: 200px; /* Adjust as needed */
+    }
+</style>
+</head>
+<body>
+    <div>
+        <div class="midde_cont">
+            <div class="container-fluid">
+                <div class="row column_title">
+                    <div class="col-md-12">
+                        <div class="page_title">
+                            <h2>Patient Dashboard</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+            </div>
+            <!-- end dashboard inner -->
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="custom-container custom-width custom-height">
+                        <img src="~/images/Appointment.png" alt="Image 4" class="img-fluid"><br /><br />
+                        <h5>Appointments </h5>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-container custom-width custom-height">
+                        <img src="~/images/Health.png3" alt="Image 4" class="img-fluid"><br /><br />
+                        <h5>Patients </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="custom-container custom-width custom-height">
+                        <img src="~/images/Medical_history.png" alt="Image 4" class="img-fluid"><br /><br />
+                        <h5>Medical History </h5>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-container custom-width custom-height">
+
+                        <img src="~/images/Fetal.png" alt="Image 4" class="img-fluid"><br /><br />
+                        <h5>Fetal Tracking </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+**@

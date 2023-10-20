@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.VaccsAppointment>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of Avatars</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Vaccs" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New Item</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        @*<table class="table table-bordered table-striped" style="width:100%">*@
+        <table class="table table-info table-hover">
+
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Surname
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var Ava in Model)
+                {
+                    <tr>
+                        <td width="20%">@Ava.Name</td>
+                        <td width="20%">@Ava.Surname</td>
+                        <td width="20%">@Ava.Date</td>
+                        <td width="20%">@Ava.Time</td>
+
+                        <td>
+                            <a asp-controller="Vaccs" asp-action="Update" asp-route-ID="@Ava.ID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                            @*<a asp-controller="Vaccs" asp-action="Delete" asp-route-ID="@Ava.ID" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>*@
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Appointments created yet</p>
+    }
+
+</div>

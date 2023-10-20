@@ -1,0 +1,58 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.HealthRecord
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+<div class="container">
+    <br />
+    <br />
+    <h1 class="display-4">Edit Health Mornitoring</h1>
+    <br />
+    <br />
+    <form method="post" asp-action="UpdateRecord">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="UserId"></label>@*These names come from our properties in the model *@
+            <input asp-for="UserId" class="form-control" />
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RecordedDate"></label>
+            <input asp-for="RecordedDate" class="form-control" />
+            <span asp-validation-for="RecordedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Weight"></label>
+            <input asp-for="Weight" class="form-control" />
+            <span asp-validation-for="Weight" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BloodPressureSystolic"></label>
+            <input asp-for="BloodPressureSystolic" class="form-control" />
+            <span asp-validation-for="BloodPressureSystolic" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="BloodPressureDiastolic"></label>
+            <input asp-for="BloodPressureDiastolic" class="form-control" />
+            <span asp-validation-for="BloodPressureDiastolic" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Symptoms"></label>
+            <input asp-for="Symptoms" class="form-control" />
+            <span asp-validation-for="Symptoms" class="text-danger"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-info" style="width:150px">Update</button>
+        <a asp-controller="PrenatalCare" asp-action="IndexRecord" class="btn btn-danger" style="width:150px">Back to List</a>
+        <div />
+
+    </form>
+</div>
+
+
+

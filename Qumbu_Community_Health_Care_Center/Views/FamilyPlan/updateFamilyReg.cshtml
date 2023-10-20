@@ -1,0 +1,239 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.FamilyReg;
+@{
+    ViewData["Title"] = "updateFamilyReg";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+
+<h1>updateFamilyReg</h1>
+<div class="container-fluid bg-white">
+
+	<form method="post" asp-action="updateFamilyReg">
+		<input asp-action="FamilyRegId" hidden/>
+		@*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+
+		<div class="row p-3">
+
+			<div class="col-6">
+				<div class="form-group">
+					<label asp-for="intercourse"></label>
+					<div class="form-check">
+						<input asp-for="intercourse" value="2" class=" form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							2/3 days
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="intercourse" value="3" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							A WEEK
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="intercourse" value="1" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							2 WEEKs
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="intercourse" value="4" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							3 WEEKs
+						</label>
+					</div>
+					<span asp-validation-for="intercourse" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="period"></label>
+					<div class="form-check">
+						<input asp-for="period" value="3" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							This Week
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="period" value="3" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							Last Week
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="period" value="2" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							Last Month
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="period" value="2" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							Past 2 Months
+						</label>
+					</div>
+					<span asp-validation-for="period" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="child"></label>
+					<div class="form-check">
+						<input asp-for="child" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="child" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="child" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="experience"></label>
+					<div class="form-check">
+						<input asp-for="experience" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="experience" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="experience" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="allaegies"></label>
+					<div class="form-check">
+						<input asp-for="allaegies" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="allaegies" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="allaegies" class="text-danger"></span>
+				</div>
+			</div>
+
+			<div class="col-6">
+
+
+
+				<div class="form-group">
+					<label asp-for="medication"></label>
+					<div class="form-check">
+						<input asp-for="medication" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="medication" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="medication" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="contraceptives"></label>
+					<div class="form-check">
+						<input asp-for="contraceptives" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="contraceptives" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="contraceptives" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="condom"></label>
+					<div class="form-check">
+						<input asp-for="condom" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="condom" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="condom" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="normal"></label>
+					<div class="form-check">
+						<input asp-for="normal" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="normal" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="normal" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="smoke"></label>
+					<div class="form-check">
+						<input asp-for="smoke" value="10" class="form-check-input" type="radio" id="flexRadioDefault1">
+						<label class="form-check-label" for="flexRadioDefault1">
+							Yes
+						</label>
+					</div>
+					<div class="form-check">
+						<input asp-for="smoke" value="0" class="form-check-input" type="radio" id="flexRadioDefault2">
+						<label class="form-check-label" for="flexRadioDefault2">
+							No
+						</label>
+					</div>
+					<span asp-validation-for="smoke" class="text-danger"></span>
+				</div>
+
+
+			</div>
+			
+				<div col>
+					<label asp-for="Status"></label>
+					<div- col-sm>
+						<select id="Dropdow" asp-for="Status" class="form-control" >
+							<option value="select">Select</option>
+							<option value="accepted">Accepted</option>
+						</select>
+						
+					</div->
+				</div>
+			
+			<div class="form-group row">
+				<div class="col-8 offset-2 row">
+					<div class="col">
+						<input type="submit" class="btn btn-outline-info w-25" value="update" />
+					</div>
+					<div class="col">
+						<a asp-action="ListFamilyRegNurse" class="btn btn-outline-info w-25">View</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	</form>
+
+</div>
+
+

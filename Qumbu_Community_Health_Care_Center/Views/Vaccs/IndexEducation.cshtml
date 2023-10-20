@@ -1,0 +1,295 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.VaccinationEducation>
+
+
+@if (User.IsInRole("Patient"))
+{
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Covid 19 Vaccine
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">VACCINE EDUCATION</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                @* <div class="modal-body"> *@
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    Pfizer-BioNTech
+                </button>
+
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">EDUCATION ON PFIZER VACCINE</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Vaccine Name</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Description</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Purpose</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Pfizer -BioNTech </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">COMIRNATY (COVID-19 Vaccine, mRNA) is an FDA-approved COVID-19 vaccine made by Pfizer for BioNTech that is indicated for active immunization to prevent COVID-19 in individuals 12 years of age and older.</div>
+                                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">To teach our cells to make a protein- or even just a piece of protein-that triggers an immune responce inside our bodies</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">BACK</button>
+                                    @*                                         <button type="button" class="btn btn-primary">Save changes</button>
+                                *@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*  </div> *@
+                <br>
+
+
+                @* <div class="modal-body"> *@
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    Johnson & Johnson
+                </button>
+
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2">EDUCATION ON J & J VACCINE</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab2" data-bs-toggle="tab" data-bs-target="#home2" type="button" role="tab" aria-controls="home2" aria-selected="true">Vaccine Name</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab2" data-bs-toggle="tab" data-bs-target="#profile2" type="button" role="tab" aria-controls="profile2" aria-selected="false">Description</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="contact-tab2" data-bs-toggle="tab" data-bs-target="#contact2" type="button" role="tab" aria-controls="contact2" aria-selected="false">Purpose</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab">Johnson & Johnson </div>
+                                    <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab">The Janssen COVID-19 vaccine is authorized for use under an Emergency Use Authorization (EUA) for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) in individuals 18 years of age and older.</div>
+                                    <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab">It uses DNA/Viral vector technology, in which a modified version of a different virus (the vector) delivers important instructions to your cells to help train your immune system to fight against the COVID-19 virus. You just need one dose of this vaccine.</div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">BACK</button>
+                                    @* <button type="button" class="btn btn-primary">Save changes</button> *@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*  </div> *@
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">BACK</button>
+                    @*                     <button type="button" class="btn btn-primary">Save changes</button>
+                *@
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Chicken pox Vaccine
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        VARIVAX
+                    </button>
+
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Vaccine Name</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Description</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Purpose</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Pfizer -BioNTech </div>
+                                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">COMIRNATY (COVID-19 Vaccine, mRNA) is an FDA-approved COVID-19 vaccine made by Pfizer for BioNTech that is indicated for active immunization to prevent COVID-19 in individuals 12 years of age and older.</div>
+                                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">To teach our cells to make a protein- or even just a piece of protein-that triggers an immune responce inside our bodies</div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        VARILRIX
+                    </button>
+
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Vaccine Name</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Description</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Purpose</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Johnson & Johnson </div>
+                                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">The Janssen COVID-19 vaccine is authorized for use under an Emergency Use Authorization (EUA) for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) in individuals 18 years of age and older.</div>
+                                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">It uses DNA/Viral vector technology, in which a modified version of a different virus (the vector) delivers important instructions to your cells to help train your immune system to fight against the COVID-19 virus. You just need one dose of this vaccine.</div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of your screenings</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Vaccs" asp-action="Education" class="btn btn-primary"><i class="bi bi-plus-circle"></i> SCREEN YOURSELF</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        @*<table class="table table-bordered table-striped" style="width:100%">*@
+        <table class="table table-info table-hover">
+
+            <thead>
+                <tr>
+                    <th>
+                        VaccineNme
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Purpose
+                    </th>
+                    @* <th>
+                Question3
+                </th>
+                <th>
+                Question4
+                </th>
+                <th>
+                Question5
+                </th>
+                <th>
+                Question6
+                </th> *@
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var Edu in Model)
+                {
+                    <tr>
+                        <td width="20%">@Edu.VaccineName</td>
+                        <td width="20%">@Edu.Description</td>
+                        <td width="20%">@Edu.Purpose</td>
+                        @*  <td width="20%">@Scree.Question3</td>
+                <td width="20%">@Scree.Question4</td>
+                <td width="20%">@Scree.Question5</td>
+                <td width="20%">@Scree.Question6</td> *@
+
+                        <td>
+
+                            else
+                            {
+                            <a asp-controller="Vaccs" asp-action="Update" asp-route-ID="@Edu.EducationID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                            <a asp-controller="Vaccs" asp-action="Delete" asp-route-ID="@Edu.EducationID" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+
+                            }
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Avatars created yet</p>
+    }
+
+</div>

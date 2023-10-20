@@ -1,0 +1,120 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Medical_File>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Walk-in-Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.mainUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.postalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextfoKin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kinCell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Relationship)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allergies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Surgery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.extraNotes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mainUser.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextfoKin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kinCell)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Relationship)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allergies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surgery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.extraNotes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.fileId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.fileId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.fileId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

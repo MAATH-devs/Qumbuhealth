@@ -1,0 +1,93 @@
+﻿@page
+@model LoginModel
+
+
+@{
+    ViewData["Title"] = "";
+}
+
+@*for icon*@
+<link rel="icon" href="~/_Images/favicon.ico" type="image/png" />
+<link rel="stylesheet" href="~/css/StyleSheet/Login.css" asp-append-version="true" />
+<h1>@ViewData["Title"]</h1>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-80">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div>
+                @*col-md-8 col-lg-6 col-xl-5*@
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="col-12">
+                            @*mb-md-5 mt-md-4 pb-5*@
+
+                            <h2 class="fw-bold mb-2 text-white">LOG-IN</h2>
+                            <p class="text-white mb-5">Please enter your login and password!</p>
+
+                            <form id="account" method="post" class="pb-5">
+                                <hr />
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label asp-for="Input.Email">Username(Email)</label>
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter email" />
+                                            <label asp-for="Input.Email">Username(Email)</label>
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+
+                                        <label asp-for="Input.Password">Password</label>
+                                        <div class="form-floating mb-3">
+                                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Eneter Password" />
+                                            <label asp-for="Input.Password" class="form-label">Password</label>
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+
+                                        <div>
+                                            <div class="checkbox">
+                                                <label asp-for="Input.RememberMe" class="form-label">
+                                                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-6">
+                                        <h4 class="justify-content-center text-white">Click one below.</h4>
+                                        <p>
+                                            >>> <a id="forgot-password" class="text-primary text-decoration-underline" asp-page="./ForgotPassword">Forgot your password?</a>
+                                        </p>
+                                        <p>
+                                            >>><a class="text-primary text-decoration-underline" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                                        </p>
+                                        <p>
+                                            >>><a id="resend-confirmation" class="text-primary text-decoration-underline" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-outline-success">Log in</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

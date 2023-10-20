@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - Qumbu_Community_Health_Care_Center</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	@*for icon*@
+	<link rel="icon" href="~/_Images/favicon.ico" type="image/png" />
+	<link rel="stylesheet" href="~/css/css/animate.css">
+
+	<link rel="stylesheet" href="~/css/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="~/css/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="~/css/magnific-popup.css">
+
+	<link rel="stylesheet" href="~/css/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="~/css/css/jquery.timepicker.css">
+
+	<link rel="stylesheet" href="~/css/css/flaticon.css">
+	<link rel="stylesheet" href="~/css/css/style.css">
+
+	<style>
+		.logo {
+			position: absolute;
+			top: 20px; /* Adjust the top position as needed */
+			left: 20px; /* Adjust the left position as needed */
+			width: 500px; /* Adjust the width as needed */
+			z-index: 1; /* Ensure the logo is above other content if needed */
+		}
+	</style>
+
+</head>
+<body>
+	<div class="wrap">
+		<div class="container-fluid">
+			<div class="row justify-content-between">
+				<div class="logo_section">
+					<img src="~/_Images/1.png" alt="Logo" class="logo">
+				</div>
+				<div class="top-wrap d-flex">
+					<div class="icon d-flex align-items-center justify-content-center"><span ></span></div>
+					<div class="text"><span></span><span></span></div>
+				</div>
+				<div class="top-wrap d-flex">
+					<div class="icon d-flex align-items-center justify-content-start"><span ></span></div>
+					<div class="text"><span></span><span></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span> Menu
+			</button>
+			<div class="order-last nav-item">
+				@*<a href="#" class="btn btn-primary">Make an appointment</a>*@
+				<partial name="_LoginPartial" />
+				@*<a class="btn btn-secondary" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+				<a class="btn btn-secondary" id="login" asp-area="Identity" asp-page="/Account/Register">Register</a>*@
+			</div>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item "><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+					<li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">About us</a></li>
+					<li class="nav-item "><a asp-controller="Home" asp-action="Index" class="nav-link">Team</a></li>
+					<li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Services</a></li>
+					@if (SignInManager.IsSignedIn(User))
+					{
+						<li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Departments</a></li>
+					}
+					<li class="nav-item"><a asp-controller="Home" asp-action="WorkShop" class="nav-link">Work_Shop</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	@*<footer class="border-top footer text-black">
+	<div class="container">
+	&copy; 2023 - Qumbu_Community_Health_Care_Center - <a asp-area="" asp-controller="Home" asp-action="Privacy">Help</a>
+	</div>
+	</footer>*@
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

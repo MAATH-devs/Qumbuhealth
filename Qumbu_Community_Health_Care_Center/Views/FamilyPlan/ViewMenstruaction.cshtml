@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Menstruation>
+@{
+    ViewData["Title"] = "ViewMenstruaction";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+
+<div class="container p-3 bg-blue-200 p-2 text-dark bg-opacity-50">
+    
+    <div class=" row pt-4">
+        <div class=" col-10">
+            <h2 class="text-primary"> Track List</h2>
+        </div>
+        
+    </div>
+
+    <br />
+    <a asp-action="CreateMenstruation" class="btn btn-info"> Back to </a>
+    <br />
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class=" table table-bordered table-striped ">
+            <thead>
+                <br />
+                <tr>
+                    <th>CurrentDate</th>
+
+                    <th>LastPeriodDate</th>
+                    <th>Result</th>
+                    <th></th>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Men in Model)
+                {
+
+                    <tr>
+                        <td>@Men.Date</td>
+
+                        <td>@Men.EndDate</td>
+
+                        <td>
+                            @if (Men.difference >= 25)
+                            {
+                                <p>Please take pregnancy test</p>
+                            }
+                            else
+                            {
+                                <p>Please screen for birth control</p>
+                            }
+
+
+                        </td>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="FamilyPlan" asp-action="UpdateMenstruation" asp-route-ID="@Men.MenstruationId" class="btn btn-outline-info mx-1">Update</a>
+                                <a asp-controller="FamilyPlan" asp-action="DeleteMenstruation" asp-route-ID="@Men.MenstruationId" class="btn btn-outline-info mx-1">Delete</a>
+                               
+                            </div>
+                        </td>
+
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>NO track has been done</p>
+    }
+
+
+</div>
+

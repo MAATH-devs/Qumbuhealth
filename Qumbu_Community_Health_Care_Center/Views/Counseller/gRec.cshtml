@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Profiling>
+@{
+    Layout = "_CounsellorLayout";
+}
+<div id="Header" class="bg-info">
+    <h2 class="m-1 pt-4 text-center text-white">Group Counselling Records</h2>
+</div>
+<div class="container-fluid bg-white border p-4">
+  @*  <div class="row pt-4">
+        <div class="col-6 text-right">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results">
+                <!-- Display search results here -->
+            </div>
+            <a asp-controller="Counseller" asp-action="Create" class="btn btn-primary">Create New Appointment</a>
+        </div>
+        <br />
+        <div class="col-6 text-left">
+            <a asp-controller="Counseller" asp-action="CreateG" class="btn btn-primary">Start Counselling</a>
+        </div>
+    </div>*@
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table id="myTable" table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Group Name
+                    </th>
+                    <th>
+                        Counselling Approach
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var pro in Model)
+                {
+                    <tr>
+                        
+                        <td width="20%">@pro.GroupName</td>
+                        <td width="20%">@pro.CounsellingApproach</td>
+                        <td width="20%">@pro.Date</td>
+                        
+                        <td>
+                            <div class="w-50 btn-group" role="group">
+                                <a asp-controller="Counseller" asp-action="Delete" asp-route-ID="@pro.ProfileID" class="btn btn-info mx-1">View</a>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>Nothing to show yet</p>
+    }
+
+</div>
+
+
+
+
+
+
+
+

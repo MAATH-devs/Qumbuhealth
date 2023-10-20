@@ -1,0 +1,88 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Referral
+@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    Layout = "_CounsellorLayout";
+}
+<div id="Header" class="bg-info">
+    <h2 class="m-1 pt-4 text-center text-white">Referr Patient(s)</h2>
+</div>
+<div class="container-fluid bg-white border p-4">
+    <form method="post" asp-action="CreateF">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div id="MainDiv">
+   @* <div id="Header" class="bg-info">
+        <h2 class="m-1 p-4 text-center text-white">Combined Records</h2>
+    </div>
+    <button id="btnPrint" class="btn btn-info">View Report</button>*@
+        <div class="row">
+            <div class="col-8">
+                @*<h4>Report Information</h4>*@
+                <img src="~/_Images/2.png" style="width:200px" />
+                @*<p class="mt-3">Date of Report: @ViewBag.Date</p>*@
+               @* <p class="mt-3">Time of Report: @ViewBag.Time</p>*@
+            </div>
+            <div id="Information" class="col-4 justify-content-md-end">
+                <h4>Counsellor Information</h4>
+                <p>First Name: @UserManager.GetUserAsync(User).Result.FirstName</p> 
+                <p>Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+                <p>Email Address: @UserManager.GetUserAsync(User).Result.Email</p>
+            </div>
+   
+        </div>
+</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="validityPeriod">Patient Name</label>
+                                <select id="PatientName" asp-for="PatientName" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Select</option>
+                                    <option value="Unako">Unako</option>
+                                    <option value="Liso">Liso</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="validityPeriod">Departments</label>
+                                <select id="Departments" asp-for="Departments" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Select</option>
+                                    <option value="Vaccination">Vaccination</option>
+                                    <option value="Pre-Natal">Pre-Natal</option> 
+                                    <option value="Family-Plan">Family Plan</option>
+                                </select>
+                            </div>
+                        </div>
+                    @*<div class="col-3">
+                        <label asp-for="Date"></label>
+                        <input asp-for="Date" class="form-control" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>*@
+                    <div class="col-8">
+                        <label asp-for="Remarks"></label>
+                        <textarea class="form-control" rows="6" id="Remarks" name="Remarks"></textarea>
+                        <span asp-validation-for="Remarks" class="text-danger"></span>
+                    </div>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group row">
+                    <div class="col-6 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-outline-info w-50" value="Submit" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Referral" class="btn btn-outline-danger w-50">Back</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+    </form>
+</div>
+

@@ -1,0 +1,222 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.PatientReg
+
+@{
+    Layout = "_Walk-in-Layout";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/StyleSheet/Workshop_StyleSheet.css">
+
+
+</head>
+
+<body>
+    <form method="post" asp-action="Create_file">
+        <div class="border p-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <!-- Section 1-->
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header ">
+                    <h5>Personal Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                        <label asp-for="IDno">Identity number:</label>
+                                        <input asp-for="IDno" class="form-control" placeholder="Please enter your ID number" />
+                                        <span asp-validation-for="IDno" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                                <label asp-for="Gender">Gender:</label>
+                                <select id="PurposeDropdown" asp-for="Gender" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Click to Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="DOB">Date of Birth:</label>
+                                <input asp-for="DOB" class="form-control" id="dateOfBirth" type="date">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="Status">Status</label>
+                                <select id="PurposeDropdown" asp-for="Status" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Click to Select Status</option>
+                                    <option value="Male">Single</option>
+                                    <option value="Female">Married</option>
+                                    <option value="Female">Divorced</option>
+                                    <option value="Female">Widower/Widow</option>
+                                    <option value="Female">Other</option>
+                                </select>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Section 2-->
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header  ">
+                    <h5>Home Address</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                        <label asp-for="Address">Address:</label>
+                                        <textarea asp-for="Address" class="form-control" id="address" rows="4" placeholder="Enter Address"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Province">Province:</label>
+                                <select id="PurposeDropdown" asp-for="Province" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Click to Select Province</option>
+                                    <option value="Male">Mpumalanga</option>
+                                    <option value="Female">Eastern Cape</option>
+                                    <option value="Female">Gauteng</option>
+                                    <option value="Female">Free State</option>
+                                    <option value="Female">North West</option>
+                                    <option value="Female">Kwazulu-Natal</option>
+                                    <option value="Female">Western Cape</option>
+                                    <option value="Female">Northen Cape</option>
+                                    <option value="Female">Limpopo</option>
+                                </select>
+                                <span asp-validation-for="Province" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Race">Race</label>
+                                <select id="PurposeDropdown" asp-for="Race" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Click to Select Race</option>
+                                    <option value="Male">Black</option>
+                                    <option value="Female">White</option>
+                                    <option value="Female">Indian</option>
+                                    <option value="Female">Colored</option>
+                                    <option value="Female">Mixed Race</option>
+                                    <option value="Female">Other</option>
+                                </select>
+                                <span asp-validation-for="Race" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more rows (sections) as needed -->
+                </div>
+
+            </div>
+        </div>
+        <!-- Section 3-->
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header  ">
+                    <h5>Next of Kin</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="memberName">Name</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter Next of Kin Name">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="memberName">Surname</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter Next of Kin Surname">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="memberName">Cellphone Number</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter Next of Kin Cellphone Number">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <textarea class="form-control" id="address" rows="4" placeholder="Enter Next of Kin Address"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Province">Province:</label>
+                                <select id="PurposeDropdown" asp-for="Province" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Click to Select Province</option>
+                                    <option value="Male">Mpumalanga</option>
+                                    <option value="Female">Eastern Cape</option>
+                                    <option value="Female">Gauteng</option>
+                                    <option value="Female">Free State</option>
+                                    <option value="Female">North West</option>
+                                    <option value="Female">Kwazulu-Natal</option>
+                                    <option value="Female">Western Cape</option>
+                                    <option value="Female">Northen Cape</option>
+                                    <option value="Female">Limpopo</option>
+                                </select>
+                                <span asp-validation-for="Province" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more rows (sections) as needed -->
+                </div>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+
+                            <input type="submit" class="btn btn-info w-75" value="Save" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="PatientReg" asp-action="fileList" class="btn btn-danger w-75">Back to List</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </form>
+    
+
+    <!-- Bootstrap JS (Optional, only needed if you use Bootstrap's JavaScript components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>

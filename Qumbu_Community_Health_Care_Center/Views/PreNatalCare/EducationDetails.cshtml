@@ -1,0 +1,94 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.PrenatalEducation;
+
+@{
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+<div class="container">
+    <br/>
+    <h1 class="display-4">@Model.Title Details</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                   @* @for(int i = 0; i < Model.Gallery.Count(); i++)
+                    {
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@(i==0 ? "active" : "")"></li>
+                    }*@
+                </ol>
+                <div class="carousel-inner">
+                   @* @for (int i = 0; i < Model.Gallery.Count(); i++)
+                    {
+                        <div class="@(i==0 ? "carousel-item active" : "carousel-item")">
+                            <img class="d-block w-100" src="@Model.Gallery[i].Url" alt="@Model.Gallery[i].Name">
+                        </div>
+                    } *@ 
+                </div>
+                <div class="carousel-item active">
+                    <img src="@Model.ImageUrl" class="rounded float-start" height="400px" width="500px" alt="..." />
+                    <div class="carousel-caption d-none d-md-block">
+                        @*<h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>*@
+                    </div>
+                </div>
+                @*<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>*@
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-primary">
+                    <span class="label label-primary"></span>
+                    <span class="monospaced"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="@Model.Description">
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="btn btn-outline-primary" href=" @Model.PdfUrl" target="_blank"> 
+                        Read now   
+                    </a>
+                   
+                </div>
+            </div>
+
+            <hr />
+
+            <ul class="list-group">
+                <li class="list-group-item"><span class="font-weight-bold">Category -</span>@Model.Category</li>
+                <li class="list-group-item"><span class="font-weight-bold">Publish Date -</span>@Model.PublishDate</li>
+@*                <li class="list-group-item"><span class="font-weight-bold">Category -</span></li>
+*@            </ul>
+                  <br/>
+                <div>
+                @if (User.IsInRole("Nurse"))
+                {
+                    <div class="w-20 btn-group" role="group">
+                        <a asp-controller="PrenatalCare" asp-action="UpdatePrenatalEducation" asp-route-ID="@Model.ID" class="btn btn-primary mx-1"><i class="bi bi-pencil-square"></i>Edit</a>
+                        <a asp-controller="PrenatalCare" asp-action="DeletePrenatalEducation" asp-route-ID="@Model.ID" class="btn btn-danger mx-1"><i class="bi bi-trash3"></i>Delete</a>
+                    </div>
+                }
+                
+                </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.PatientReg>
+@{
+    Layout = "_Walk-in-Layout";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of Files</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="PatientReg" asp-action="Create_File" class="btn btn-info">Create New File</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        No.
+                    </th>
+                    <th>
+                        ID Number
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Province
+                    </th>
+                    <th>
+                        Race
+                    </th>
+                    <th>
+                        Next of Kin Cell
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var record in Model)
+                {
+                    <tr>
+                        <td width="5%">@record.PatientRegId</td>
+                        <td width="15%">@record.IDno</td>
+                        <td width="10%">@record.Gender</td>
+                        <td width="10%">@record.Status</td>
+                        <td width="15%">@record.Province</td>
+                        <td width="10%">@record.Race</td>
+                        <td width="15%">@record.kinCell</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Patient Files created yet</p>
+    }
+
+</div>
+
+

@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewData["Title"] = "updateAppointment";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"></h2>
+        </div>
+
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table  table-active table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        1.When was the last time you enganged in sexual intercourse?"
+                    </th>
+                    <th>
+                        2.When was the last time you had your periods?
+                    </th>
+                    <th>
+                        3.Do you have a child?
+                    </th>
+                    <th>
+                        4.Have experince any morning sickness?
+                    </th>
+                    <th>
+                        5.do you have allergies?
+                    </th>
+                    <th>
+                        6.are you taking any medication?
+                    </th>
+                    <th>
+                        7.Have you ever used any contraceptives?
+                    </th>
+                    <th>
+                        8.Choose any birth Control of your choice
+                    </th>
+                    <th>
+                        9.Choose any birth Control of your choice
+                    </th>
+                    <th>
+                        10.Choose any birth Control of your choice
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var fed in Model)
+                {
+                    <tr>
+                        <td width="20%">@fed.MainUser.FirstName</td>
+                        <td width="20%">@fed.Date</td>
+                        <td>
+                            @if (fed.intercourse == 3)
+                            {
+                                <p>2/3 days</p>
+                            }
+                            else if (fed.intercourse == 2)
+                            {
+                                <p> 1 Week</p>
+                            }
+                            else if (fed.intercourse == 1)
+                            {
+                                <p>2 Week</p>
+                            }
+                            else if (fed.intercourse == 4)
+                            {
+                                <p> 4 Week</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.period == 3)
+                            {
+                                <p> This Week</p>
+                            }
+                            else if (fed.period == 3)
+                            {
+                                <p> last Week</p>
+                            }
+                            else if (fed.period == 2)
+                            {
+                                <p>last Month</p>
+                            }
+                            else if (fed.period == 2)
+                            {
+                                <p>Past Month</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.child == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        </td>
+                        <td>
+                            @if (fed.experience == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.allaegies == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        </td>
+                        <td>
+                            @if (fed.medication == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.contraceptives == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.condom == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.normal == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.smoke == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-6 text-right  d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-controller="FamilyPlan" asp-action="CreateFamilyReg" class="btn btn-outline-info">Back</a>
+        </div>
+
+    }
+    else
+    {
+        <p>No Chat added yet</p>
+    }
+
+</div>

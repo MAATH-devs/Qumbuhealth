@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Appointment>
+
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="display-4">Appointments</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="PrenatalCare" asp-action="CreateAppointment" class="btn btn-primary" class="text-end">Book Appointment</a>
+        </div>
+    </div>
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:90%">
+            <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Time
+                    </th>
+                    @*<th>
+                        Notes
+                    </th>*@
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var appointment in Model)
+                {
+                    <tr>
+                       @* <td width="20%">@appointment.FirstName</td>
+                        <td width="20%">@appointment.LastName</td>
+                        <td width="10%">@appointment.Date</td>
+                        <td width="20%">@appointment.Time</td>*@
+                       @* <td width="10%">@appointment.Notes</td>*@
+                        <td width="10%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="PrenatalCare" asp-action="UpdateAppointment" asp-route-ID="@appointment.AppointmentID" class="btn btn-primary mx-1"><i class="bi bi-pencil-square"></i>Edit</a>
+                                @*                   <a asp-controller="Expense" asp-action="Delete" asp-route-ID="@healthRecord.Id" class="btn btn-danger mx-1">Delete</a>
+                        *@
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No appointment booking yet</p>
+    }
+</div>
+

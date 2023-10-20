@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Appointment Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-heading {
+            background-color: #f8f9fa; /* Light grey shade */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .long-btn {
+            min-width: 200px; /* Adjust width as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h4 class="form-heading">Booking Appointment Form</h4>
+        <form>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="name">Patient Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="reason">Reason for Booking:</label>
+                        <select class="form-control" id="reason" name="reason">
+                            <option value="checkup">Routine Checkup</option>
+                            <option value="consultation">Consultation</option>
+                            <option value="followup">Follow-up</option>
+                            <option value="test">Medical Test</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="department">Department (Optional):</label>
+                        <select class="form-control" id="department" name="department">
+                            <option value="">Select Department</option>
+                            <option value="cardiology">Counselling</option>
+                            <option value="orthopedics">PreNatal care</option>
+                            <option value="neurology">Family Planning</option>
+                            <option value="dermatology">Vaccination</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments (Optional):</label>
+                <textarea class="form-control" id="comments" name="comments" rows="3"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-success btn-lg">Book</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+
+
+

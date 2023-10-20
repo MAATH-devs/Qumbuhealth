@@ -1,0 +1,389 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.VaccsAppointment
+
+@{
+    Layout = "Vaccs";
+}
+
+@if (User.IsInRole("Patient"))
+{
+    <div class="mx-0 mx-sm-auto">
+        <div class="card w-75">
+            <div class="card-body bg-primary">
+                <form method="post" asp-action="IndexAppo">
+                    <input asp-for="ID" hidden />
+                    <div class="border p-3" style="background-image: url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAwfHx2YWNjaW5lfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60');">
+                        @* <div>
+                    <img class="card-img-top" src="~/_Images/Vaccs/istockphoto-1289951048-612x612.jpg" width="12" height="300" alt="#" />*@
+                        @* <div class="p-3 mb-2 bg-info"></div>*@
+                        <div class="form-group row">
+                            <h2 class="text-opacity-50 pl-3 fw-bold">MAKE AN APPOINTMENT</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="text-justify ">Name</h4>
+                                <div class=" box mb-3">
+                                    <input type="text" class="form-control" placeholder="type your name hare">
+                                    @*  <div class="btn btn-outline-secondary" type="button"> <span class="fas fa-plus pe-2"></span>Add description </div> *@
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div>
+                                            <h4 class="text-justify">Date</h4>
+                                            <div class="box">
+                                                <input class="form-control" type="text" placeholder="Jul 14, 2021"><span class=" fa-calendar"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-md-0 mt-3">
+                                        <div>
+                                            <h4 class="text-justify">Time</h4>
+                                            <div class="box">
+                                                <input class="form-control fas fa-user-times" type="text" placeholder="2:00 PM">@*<span class="fas fa-stopwatch"></span> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @* <div class="col-md-4 mt-md-0 mt-3">
+                                <div> <p class="mb-2">Duration</p>
+                                <div class="box">
+                                <input class="form-control" type="number" placeholder="1h 45m">*@
+                                    <!-- <div class="d-flex flex-column arrow"> <span class="fas fa-caret-up"></span> <span class="fas fa-caret-down"></span> </div> -->
+                                    @* </div>*@
+                                    @*    </div>
+                                </div>*@
+                                </div>
+                                @*<p class="dis mt-3"><span class="fas fa-check-circle pe-1"></span>This event will take place on the july 14, 2021 form 02:00 PM untill 03:45 PM</p>*@
+                            </div>
+                            @* <div class="col-12"> <p>Location</p>
+                        <div class="box">
+                        <input class="form-control" type="text" placeholder="Location">
+                        <div class="btn btn-outline-secondary">
+                        <span class="fas fa-plus pe-1"></span> Set meeting room
+                        </div>
+                        </div> <p class="bar2 mt-4"></p>
+                        </div>*@
+                            @*<div class="col-12"> <p>Add guests</p>
+                        <div class="box"> <input class="form-control" type="text" placeholder="Guest email">
+                        <div class="add btn btn-outline-secondary">Add</div>
+                        </div>
+                        </div>*@
+                            <div class="col-12">
+                                <div class="d-flex align-items-center mt-4">
+                                    @* <div class="pic">
+                                <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+                                <span class="fas fa-times"></span>
+                                </div> *@
+                                    @* <div class="pic">
+                                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+                                <span class="fas fa-times"></span>
+                                </div>
+                                <div class="pic">
+                                <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+                                <span class="fas fa-times"></span>
+                                </div>*@
+                                    <!-- <div class="pic"> <img src="https://images.pexels.com/photos/2078265/pexels-photo-2078265.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""> <span class="fas fa-times"></span> </div> --> <!-- <div class="pic"> <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt=""> <span class="fas fa-times"></span> </div> -->
+                                    @*<div class="rounded-circle">
+                                <span class="fas fa-plus"></span>
+                                <span class="number">3</span>
+                                </div>*@
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="d-md-flex align-items-center mt-4">
+                                        <div class="d-flex flex-md-column align-sm-items-center justify-content-between me-md-4 me-0">
+                                            <h4 class="text-justify"> Notification </h4>
+                                            <div class="Radio form-control">
+                                                <label class="radio">
+                                                    <input type="radio" name="send" value="Email">
+                                                    <span>Email</span>
+                                                </label>@* <label class="radio">
+                                            <input type="radio" name="send" value="Stack"> <span>Stack</span> </label>*@
+                                            </div>
+                                        </div><br />
+                                        <div class="col-md-4 ">
+                                            <h4 class="text-justify"> Set reminder </h4>
+                                            <input class="form-control" type="number" placeholder="1 hour before event">
+                                        </div>
+                                        <div class="col">
+                                            <a asp-action="IndexScree" class="btn btn-success w-40">SUBMIT</a>
+                                        </div>
+                                        @* <div>
+                                    <button class="btn-info"> <a class="nav-link text-dark" asp-area="" asp-controller="Vaccs" asp-action="IndexScree">SUBMIT</a></button>
+
+                                    </div>*@
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        @*</div>*@
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="appointments.html">Appointment </a></li>
+                    <li class="breadcrumb-item"><i class="feather-chevron-right"></i></li>
+                    <li class="breadcrumb-item active">Appointment List</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-table show-entire">
+                <div class="card-body">
+
+                    <div class="page-table-header mb-2">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <div class="doctor-table-blk">
+                                    <h3>Appointment</h3>
+                                    <div class="doctor-search-blk">
+                                        <div class="top-nav-search table-search-blk">
+                                            <form>
+                                                <input type="text" class="form-control" placeholder="Search here">
+                                                <a class="btn"><img src="assets/img/icons/search-normal.svg" alt=""></a>
+                                            </form>
+                                        </div>
+                                        <div class="add-group">
+                                            <a href="add-appointment.html" class="btn btn-primary add-pluss ms-2"><img src="assets/img/icons/plus.svg" alt=""></a>
+                                            <a href="javascript:;" class="btn btn-primary doctor-refresh ms-2"><img src="assets/img/icons/re-fresh.svg" alt></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-auto text-end float-end ms-auto download-grp">
+                                <a href="javascript:;" class=" me-2"><img src="assets/img/icons/pdf-icon-01.svg" alt=""></a>
+                                <a href="javascript:;" class=" me-2"><img src="assets/img/icons/pdf-icon-02.svg" alt=""></a>
+                                <a href="javascript:;" class=" me-2"><img src="assets/img/icons/pdf-icon-03.svg" alt=""></a>
+                                <a href="javascript:;"><img src="assets/img/icons/pdf-icon-04.svg" alt=""></a>
+                            </div>*@
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table border-0 custom-table comman-table datatable mb-0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </th>
+                                    <th><h4> Name</h4></th>
+                                    <th><h4>Appointment</h4></th>
+                                    <th><h4>Email</h4></th>
+                                    <th><h4>Date</h4></th>
+                                    <th><h4>Time</h4></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-01.jpg" class="rounded-circle m-r-5" alt> Andrea Lalema</a></td>
+                                    <td>Dr.Bernardo James</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f6938e979b869a93b6939b979f9ad895999b">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-02.jpg" class="rounded-circle m-r-5" alt>Smith Bruklin</a></td>
+                                    <td>Dr.William Stephin</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93f6ebf2fee3fff6d3f6fef2faffbdf0fcfe">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-03.jpg" class="rounded-circle m-r-5" alt>William Stephin</a></td>
+                                    <td>Dr.Galaviz Lalema</td>
+                                    <td>Cancer</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="afcad7cec2dfc3caefcac2cec6c381ccc0c2">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-04.jpg" class="rounded-circle m-r-5" alt> Bernardo James</a></td>
+                                    <td>Dr.Cristina Groves</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9df8e5fcf0edf1f8ddf8f0fcf4f1b3fef2f0">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-06.jpg" class="rounded-circle m-r-5" alt>Cristina Groves</a></td>
+                                    <td>Dr.Smith Bruklin</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3b6abb2bea3bfb693b6beb2babffdb0bcbe">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-05.jpg" class="rounded-circle m-r-5" alt> Mark Hay Smith</a></td>
+                                    <td>Dr.Smith Bruklin</td>
+                                    <td>Prostate</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="97f2eff6fae7fbf2d7f2faf6fefbb9f4f8fa">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-01.jpg" class="rounded-circle m-r-5" alt> Andrea Lalema</a></td>
+                                    <td>Dr.Smith Bruklin</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="afcad7cec2dfc3caefcac2cec6c381ccc0c2">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-check check-tables">
+                                            <input class="form-check-input" type="checkbox" value="something">
+                                        </div>
+                                    </td>
+                                    <td class="profile-image"><a href="profile.html"><img width="28" height="28" src="assets/img/profiles/avatar-02.jpg" class="rounded-circle m-r-5" alt>Smith Bruklin</a></td>
+                                    <td>Dr.Bernardo James</td>
+                                    <td>Infertility</td>
+                                    <td><a href="javascript:;">+1 23 456890</a></td>
+                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="690c11080419050c290c04080005470a0604">[email&#160;protected]</a></td>
+                                    <td>01.10.2022</td>
+                                    <td>07:30</td>
+                                    <td class="text-end">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="edit-appointment.html"><i class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_patient"><i class="fa fa-trash-alt m-r-5"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@*<div class="container">
+  <div class="card"> <p class="h-1 fw-bold">MAKE AN APPOINTMENT</p> 
+    <div class="bar mb-3"></div> *@
+   

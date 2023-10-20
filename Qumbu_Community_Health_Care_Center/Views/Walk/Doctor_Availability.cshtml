@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Availability</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .table-heading {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Doctor Availability</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-heading">
+                    <tr>
+                        <th class="align-middle">Dr Name</th>
+                        <th class="align-middle">Department</th>
+                        <th class="align-middle">Gender</th>
+                        <th class="align-middle">Cell Number</th>
+                        <th class="align-middle">Status</th>
+                        <th class="align-middle">Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dr. Smith</td>
+                        <td>Internal Medicine</td>
+                        <td>Male</td>
+                        <td>123-456-7890</td>
+                        <td>Available</td>
+                        <td><button class="btn btn-outline-success btn-sm">Contact</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Johnson</td>
+                        <td>Cardiology</td>
+                        <td>Female</td>
+                        <td>987-654-3210</td>
+                        <td>Not Available</td>
+                        <td><button class="btn btn-outline-success btn-sm">Contact</button></td>
+                    </tr>
+                    <tr>
+                        <td>Dr. Williams</td>
+                        <td>Orthopedics</td>
+                        <td>Male</td>
+                        <td>555-123-4567</td>
+                        <td>Available</td>
+                        <td><button class="btn btn-outline-success btn-sm">Contact</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-row mt-3">
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .diagonal-container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .diagonal-card {
+        transform: translateY(-50%) rotate(-45deg);
+        position: relative;
+        top: 40%;
+        margin: 40px;
+    }
+
+</style>
+<div class="container mt-4">
+    <h4>DASHBOARD</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body bg-secondary p-3">
+                    <h5 class="card-title text-center mb-4">Patient Consultation</h5>
+                    <img class="card-img-top" src="~/images/nurse_cons.png" alt="Registration image" class="img-fluid" style="max-height: 183px; width: auto;">
+                    <button class="btn btn-success btn-block text-center mt-3">Conducts</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body bg-secondary p-3">
+                    <h5 class="card-title">Doctor Availability</h5>
+                    <img class="card-img-top" src="~/images/dr avail.png" alt="Doctor 2" class="img-fluid" style="max-height: 250px; width: 330px;">
+                    <button class="btn btn-success btn-block text-center mt-3">Check</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body bg-secondary p-3">
+                    <h5 class="card-title">Appointment</h5>
+                    <img class="card-img-top" src="~/images/appointment.jpg" class="img-fluid" style="max-height: 330px; width: 290px;" alt="Doctor 2">
+                    <button class="btn btn-success btn-block text-center mt-3">Manage</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="row diagonal-container">
+
+            <div class="col-md-3 diagonal-card">
+                <div class="card text-center bg-secondary p-3">
+                    <h5 class="card-title text-center mb-4">Consultaion Report</h5>
+                    <img src="~/images/att_rep.png" alt="Report image" class="img-fluid">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-success" id="button5">Genenerate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 diagonal-card">
+                <div class="card text-center bg-secondary p-3">
+                    <h5 class="card-title text-center mb-4">FeedBack & Support</h5>
+                    <img src="~/images/feedback.png" alt="Queue image" class="img-fluid">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-success" id="button4">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 diagonal-card">
+                <div class="card text-center bg-secondary p-3">
+                    <h5 class="card-title text-center mb-4">Medical Record</h5>
+                    <img src="~/images/medical-781422.jpg" alt="File image" class="img-fluid">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-success">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- Include Bootstrap JS for button toggling -->
+<script src="~/https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>>
+<script src="~/https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Toggle active class when a button is clicked
+    $('#button1, #button2,#button3,#button4,#button5').click(function () {
+        $(this).toggleClass('active');
+    });
+</script>
+

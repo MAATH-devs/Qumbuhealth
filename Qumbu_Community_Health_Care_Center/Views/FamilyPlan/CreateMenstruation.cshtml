@@ -1,0 +1,128 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Menstruation
+@using Qumbu_Community_Health_Care_Center.Models
+@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "CreateMenstruation";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+
+<div class="mt-2 p-2 bg-info text-center text-white rounded">
+    <h6>TRACK-MENSTRUATION</h6>
+
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" asp-action="CreateMenstruation" class=" form-horizontal bg-green-300  p-2 text-dark bg-opacity-20">
+            <div class=" border border-primary border-5 p-3">
+                <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
+
+                <div class=" form-group">
+                    <label asp-for="Date"></label>
+                    <div col-sm-5>
+                        <input asp-for="Date" class=" form-control" id="validationName" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="Date" class=" text-danger"></span>
+                </div>
+                <div class=" form-group">
+                    <label asp-for="EndDate"></label>
+                    <div col-sm-10>
+                        <input asp-for="EndDate" class=" form-control" id="validationRace" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="EndDate" class=" text-danger"></span>
+
+                </div>
+                <div class=" form-group">
+                    <label asp-for="difference"></label>
+                    <div col-sm-10>
+                        <input asp-for="difference" class=" form-control" id="validationRace" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="difference" class=" text-danger"></span>
+
+                </div>
+                <div class=" form-group row">
+                    <div class=" col-8 offset-2 row">
+                        <div class=" col">
+                            <input type="submit" class="btn btn-outline-info  " value="submit" />
+                        </div>
+                        <div class=" col-1">
+                            <a asp-action="ViewMenstruaction" class=" btn btn-outline-info ">Update</a>
+                        </div>
+                    </div>
+                </div>
+   
+            </div>
+
+
+        </form>
+    </div>
+    <div class="row">
+        <table class=" table table-bordered table-striped style=" width:60%" ">
+            <thead>
+                <br />
+                <tr>
+                    <th>CurrentDate</th>
+
+                    <th>LastPeriodDate</th>
+                    <th>Result</th>
+                    
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Menstruation Men in ViewBag.App)
+                {
+
+                    <tr>
+
+                        <td width="20%">@Men.Date</td>
+
+                        <td width ="20%">@Men.EndDate</td>
+
+                        <td width="20%">
+                            @if (Men.difference >= 25)
+                            {
+                                <p>Please take pregnancy test</p>
+                            }
+                            else
+                            {
+                                <p>Please screen for birth control</p>
+                            }
+
+
+                        </td>
+                    @*     <td width="20%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="FamilyPlan" asp-action="UpdateMenstruation" asp-route-ID="@Men.MenstruationId" class="btn btn-outline-info mx-1">Update</a>
+                                <a asp-controller="FamilyPlan" asp-action="DeleteMenstruation" asp-route-ID="@Men.MenstruationId" class="btn btn-outline-info mx-1">Delete</a>
+
+                            </div>
+                        </td> *@
+
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+   
+   
+</div>
+
+
+

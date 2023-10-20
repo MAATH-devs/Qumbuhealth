@@ -1,0 +1,327 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.FeedbackV>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List Of Patient feedbacks</h2>
+        </div>
+        <div class="col-6 text-end">
+            @* <a asp-controller="Vaccs" asp-action="Feedback" class="btn btn-primary"><i class="bi bi-plus-circle"></i>P FEEDBACK</a> *@
+            <a asp-controller="Vaccs" asp-action="Feedback" class="btn btn-primary"><i class="bi bi-plus-circle"></i> FEEDBACK</a>
+
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        @*<table class="table table-bordered table-striped" style="width:100%">*@
+        <table class="table table-info table-hover">
+
+            <thead>
+                <tr>
+                    <th>
+                        Patient
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Surname
+                    </th>
+                    <th>
+                        rating1
+                    </th>
+                    <th>
+                        rating2
+                    </th>
+                    <th>
+                        rating3
+                    </th>
+                    <th>
+                        rating4
+                    </th>
+                    <th>
+                        rating5
+                    </th>
+                    <th>
+                        Comment
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var Scree in Model)
+                {
+                    <tr>
+                        <td width="20%">@Scree.Patient</td>
+                        <td width="20%">@Scree.Name</td>
+                        <td width="20%">@Scree.Surname</td>
+                        <td width="20%">
+                            @if (Scree.rating1 == 1)
+                            {
+                                <p>Very Good</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.rating2 == 2)
+                            {
+                                <p>Good</p>
+                            }                         
+                        </td>
+                        <td width="20%">
+                            @if (Scree.rating3 == 3)
+                            {
+                                <p>Mediocre</p>
+                            }
+                          
+                        </td>
+                        <td width="20%">
+                            @if (Scree.rating4 == 4)
+                            {
+                                <p>Bad</p>
+                            }
+                          
+                        </td>
+                        <td width="20%">
+                            @if (Scree.rating5 == 5)
+                            {
+                                <p>Very Bad</p>
+                            }
+                        </td>
+                        <td width="20%">@Scree.Comment</td>
+
+                        <td>
+                            <a asp-controller="Vaccs" asp-action="Update" asp-route-ID="@Scree.FeedbackID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                            <a asp-controller="Vaccs" asp-action="Delete" asp-route-ID="@Scree.FeedbackID" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Avatars created yet</p>
+    }
+
+</div>
+@* @if (User.IsInRole("Doctor"))
+{
+    <div class="mx-0 mx-sm-auto">
+        <div class="card">
+            <div class="card-header bg-primary">
+
+                <h5 class="card-title text-white mt-2" id="exampleModalLabel">Feedback request</h5>
+            </div>
+            <div class="modal-body">
+                <div class="border p-3" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgVBTQDFavmfdWftDThY_tcu47ntl-n7M90Q&usqp=CAU');">
+                    <div class="text-center">
+                        <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+                        <h4>
+                            <strong>Your opinion matters</strong>
+                        </h4>
+                        <h4>
+                            Have some ideas how to improve our service?
+                            <strong>Give us your feedback.</strong>
+                        </h4>
+                    </div>
+                </div>
+
+                <hr />
+
+                <form method="post" asp-action="IndexFee">
+                    <input asp-for="ID" hidden />
+                    <div class=" bg-info">
+                        <h4 class="text-center">Your rating:</h4>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example1" />
+                            <h4>
+                                <label class="form-check-label" for="radio3Example1">
+                                    Very good
+                                </label>
+                            </h4>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example2" />
+                            <h4>
+                                <label class="form-check-label" for="radio3Example2">
+                                    Good
+                                </label>
+                            </h4>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example3" />
+                            <h4>
+                                <label class="form-check-label" for="radio3Example3">
+                                    Medicore
+                                </label>
+                            </h4>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example4" />
+                            <h4>
+                                <label class="form-check-label" for="radio3Example4">
+                                    Bad
+                                </label>
+                            </h4>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example5" />
+                            <h4>
+                                <label class="form-check-label" for="radio3Example5">
+                                    Very bad
+                                </label>
+                            </h4>
+                        </div>
+
+                        <h4 class="text-center">What could we improve?</h4>
+
+                        <!-- Message input -->
+                        <div>
+                            <textarea class="form-control" placeholder="type your comment here" id="form4Example3" rows="4"></textarea>
+                            <h4><label class="form-label" for="form4Example3">Your feedback</label></h4>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-end">
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+} *@
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Admin</h1>
+}
+
+
+@*<div class="mx-0 mx-sm-auto">
+    <div class="card">
+        <div class="card-header bg-primary">
+            
+            <h5 class="card-title text-white mt-2" id="exampleModalLabel">Feedback request</h5>
+        </div>
+        <div class="modal-body">
+            <div class="border p-3" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgVBTQDFavmfdWftDThY_tcu47ntl-n7M90Q&usqp=CAU');">
+            <div class="text-center">
+                <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+                <h4>
+                    <strong>Your opinion matters</strong>
+                </h4>
+                <h4>
+                    Have some ideas how to improve our service?
+                    <strong>Give us your feedback.</strong>
+                </h4>
+            </div>
+            </div>
+
+            <hr />
+
+            <form method="post" asp-action="IndexFee">
+                <input asp-for="ID" hidden />
+               <div class=" bg-info">
+                <h4 class="text-center">Your rating:</h4>
+
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example1" />
+                    <h4><label class="form-check-label" for="radio3Example1">
+                        Very good
+                    </label></h4>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example2" />
+                    <h4><label class="form-check-label" for="radio3Example2">
+                        Good
+                    </label></h4>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example3" />
+                    <h4><label class="form-check-label" for="radio3Example3">
+                        Medicore
+                    </label></h4>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example4" />
+                    <h4><label class="form-check-label" for="radio3Example4">
+                        Bad
+                    </label></h4>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="exampleForm" id="radio3Example5" />
+                    <h4><label class="form-check-label" for="radio3Example5">
+                        Very bad
+                    </label></h4>
+                </div>
+                  
+                    <h4 class="text-center">What could we improve?</h4>
+                       
+                <!-- Message input -->
+                <div>
+                    <textarea class="form-control" placeholder="type your comment here" id="form4Example3" rows="4"></textarea>
+                    <h4><label class="form-label" for="form4Example3">Your feedback</label></h4>
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-end">
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>*@
+
+
+
+
+
+
+@*    <div class="mx-0 mx-sm-auto">
+        <div class="card w-75">
+            <div class="card-body">
+
+            <form class="px-2" action="">
+                <input asp-for="ID" hidden />
+                <div class="border p-3">
+                    <div class="form-group row">
+                        <h2 class="text-opacity-50 pl-3">FEEDBACK</h2>
+                    </div>
+                <p class="text-center fw-bold"><strong>How do you rate customer support:</strong></p>
+
+                <ul class="h2 rating justify-content-center pb-3" data-mdb-toggle="rating">
+                    <li>
+                        <i class="far fa-star fa-sm text-primary" title="Bad"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-primary" title="Poor"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-primary" title="OK"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star  text-primary" title="Good"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-primary" title="Excellent"></i>
+                    </li>
+                </ul>
+
+                <p class="text-center"><strong>What could we improve?</strong></p>
+
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                    <textarea class="form-control" id="form4Example6" rows="4"></textarea>
+                    <label class="form-label" for="form4Example6">Your feedback</label>
+                </div>
+                </div>
+            </form>
+
+            </div>
+        </div>
+    </div>*@

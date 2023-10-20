@@ -1,0 +1,60 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Referral
+
+@{
+    Layout = "_CounsellorLayout";
+}
+<div class="mt-2 p-2 bg-white text-center text-white-50 rounded">
+    <h2>Referred Patients</h2>
+</div>
+<form method="post" asp-action="DeleteRef">
+    <input asp-for="ReferralID" hidden />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="validityPeriod">Patient Name</label>
+                            <select id="PatientName" asp-for="PatientName" class="form-control" id="validationName" required>
+                                <option value="Select" class="bg-opacity-50">Select</option>
+                                <option value="Unako">Unako</option>
+                                <option value="Liso">Liso</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="validityPeriod">Departments</label>
+                            <select id="Departments" asp-for="Departments" class="form-control" id="validationName" required>
+                                <option value="Select" class="bg-opacity-50">Select</option>
+                                <option value="Vaccination">Vaccination</option>
+                                <option value="Pre-Natal">Pre-Natal</option>
+                                <option value="Family-Plan">Family Plan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="Remarks">Remarks</label>
+                            <textarea class="form-control" id="Remarks" rows="4" placeholder="Enter remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-6 offset-2 row">
+                    <div class="col">
+                        <input type="submit" class="btn btn-info w-75" value="Submit" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Referral" class="btn btn-danger w-75">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

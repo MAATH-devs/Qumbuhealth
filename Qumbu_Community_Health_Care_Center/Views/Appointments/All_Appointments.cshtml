@@ -1,0 +1,155 @@
+﻿
+@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Appointment>
+
+
+@{
+    ViewData["Title"] = "All_Appointments";
+    Layout = "~/Views/Shared/_Walk-in-Layout.cshtml";
+}
+
+<div class=" bg-white text-center text-white-50 rounded">
+    <h2>List of Appointments</h2>
+</div>
+@if(TempData["Success"] != null)
+{
+    <div class="bg bg-success text-center ">
+        <h5 class="text-center">@TempData["Success"]</h5>
+    </div>
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="text-end">
+            <a asp-controller="Appointments" asp-action="Create" class="btn btn-info">New Appointment</a>
+        </div>
+    </div>
+    <br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead class="table-primary">
+            <tr>
+                <th>
+                    Booked By:
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Purpose)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Date_Time)
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.MainUser.FirstName
+                            @item.MainUser.LastName
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Purpose)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date_Time)
+                        </td>
+                        @if (item.Status == "New")
+                        {
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                    Accept
+                                </button>|
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                    Decline
+                                </button>|
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                    Pending
+                                </button>
+                                @*   <a asp-action="Details" asp-route-id="@item.AppointmentID">Decline</a>|
+                    <a asp-action="Delete" asp-route-id="@item.AppointmentID">Postpone</a> *@
+                            </td>
+                            <div class="modal fade" id="exampleModal-@item.AppointmentID" tabindex="-1" aria-labelledby="exampleModalLabel-@item.AppointmentID" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel-@item.AppointmentID">Confirm acceptance</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body modal-dialog modal-dialog-centered">
+                                            <p>Please click proceed to approve the appointment.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a asp-action="Accept" asp-route-id="@item.AppointmentID" button type="button" class="btn btn-primary">Proceed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <td class="text-black justify-content-center">
+                                <label>Completed</label>
+                            </td>
+
+                        }
+
+                    </tr>
+
+                }
+
+            </tbody>
+        
+    </table>
+
+</div>
+@*     <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.MainUser.FirstName
+                        @item.MainUser.LastName
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Purpose)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Time)
+                    </td>
+                    @if(item.Status == "New")
+                    {
+                        <td>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                Accept
+                            </button>|
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                Decline
+                            </button>|
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.AppointmentID">
+                                Pending
+                            </button>
+                          @*   <a asp-action="Details" asp-route-id="@item.AppointmentID">Decline</a>|
+                            <a asp-action="Delete" asp-route-id="@item.AppointmentID">Postpone</a> *@

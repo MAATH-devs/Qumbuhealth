@@ -1,0 +1,102 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Medical_File
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Walk-in-Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Medical_File</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="fileId" />
+            <div class="form-group">
+                <label asp-for="PatientID" class="control-label"></label>
+                <select asp-for="PatientID" class="form-control" asp-items="ViewBag.PatientID"></select>
+                <span asp-validation-for="PatientID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDNumber" class="control-label"></label>
+                <input asp-for="IDNumber" class="form-control" />
+                <span asp-validation-for="IDNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateofBirth" class="control-label"></label>
+                <input asp-for="DateofBirth" class="form-control" />
+                <span asp-validation-for="DateofBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Province" class="control-label"></label>
+                <input asp-for="Province" class="form-control" />
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="postalCode" class="control-label"></label>
+                <input asp-for="postalCode" class="form-control" />
+                <span asp-validation-for="postalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextfoKin" class="control-label"></label>
+                <input asp-for="NextfoKin" class="form-control" />
+                <span asp-validation-for="NextfoKin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="kinCell" class="control-label"></label>
+                <input asp-for="kinCell" class="form-control" />
+                <span asp-validation-for="kinCell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Relationship" class="control-label"></label>
+                <input asp-for="Relationship" class="form-control" />
+                <span asp-validation-for="Relationship" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodType" class="control-label"></label>
+                <input asp-for="BloodType" class="form-control" />
+                <span asp-validation-for="BloodType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Allergies" class="control-label"></label>
+                <input asp-for="Allergies" class="form-control" />
+                <span asp-validation-for="Allergies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surgery" class="control-label"></label>
+                <input asp-for="Surgery" class="form-control" />
+                <span asp-validation-for="Surgery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="extraNotes" class="control-label"></label>
+                <input asp-for="extraNotes" class="form-control" />
+                <span asp-validation-for="extraNotes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

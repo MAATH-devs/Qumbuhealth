@@ -1,0 +1,101 @@
+﻿@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data;
+@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.UltrasoundAppointment>
+
+@{
+    ViewData["Title"] = "View all Utrasound Appointment - File based Image Storage";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+<div class="row pt-4">
+    <div class="container">
+        <h1 class="display-4">Fetal Monitoring</h1>
+    </div>
+    
+</div>
+
+<br/>
+<br/>
+@if (User.IsInRole("Nurse"))
+{
+    <p>
+        <a asp-action="CreateUltrasoundAppointment" class="text-primary">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GestationalAgeWeeks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FetalHeartRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderDetermined)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UltrasoundImagePath)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.FileName)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MainUser.FirstName) 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GestationalAgeWeeks)
+                </td>
+                <td width="10%">
+                    @Html.DisplayFor(modelItem => item.FetalHeartRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenderDetermined)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    <img src="@item.UltrasoundImagePath" height="120px" width="120px" />
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.FileName)
+            </td>*@
+                @if (User.IsInRole("Nurse"))
+                {
+                    <td>
+                        <div class="w-15 btn-group text-end" role="group">
+                            <a asp-controller="PrenatalCare" asp-action="UpdateUltrasound" asp-route-ID="@item.Id" class="btn btn-primary mx-1"><i class="bi bi-pencil-square"></i>Edit</a>
+                            <a asp-controller="PrenatalCare" asp-action="DeleteUltrasound" asp-route-ID="@item.Id" class="btn btn-danger mx-1"><i class="bi bi-trash3"></i>Delete</a>
+                        </div>
+                    </td>
+                }
+               
+            </tr>
+        }
+    </tbody>
+</table>

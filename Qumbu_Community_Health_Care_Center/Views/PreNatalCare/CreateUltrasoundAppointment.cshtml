@@ -1,0 +1,102 @@
+﻿@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data;
+@model Qumbu_Community_Health_Care_Center.Models.UltrasoundAppointment
+
+@{
+    //ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+@if (User.IsInRole("Nurse"))
+{
+    <div class="container">
+        <br />
+        <br />
+        <h1 class="display-4">Create Fetal Monitoring</h1>
+        <br />
+        <br />
+        <form asp-action="CreateUltrasoundAppointment" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="PatientID" class="control-label">Choose Patient</label>
+                <select asp-for="PatientID" class="form-control">
+                    @foreach (ApplicationUser item in ViewBag.Patients)
+                    {
+                        <option value="@item.Id">@item.FirstName @item.LastName</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AppointmentDate" class="control-label"></label>
+                <input asp-for="AppointmentDate" class="form-control" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="GestationalAgeWeeks" class="control-label"></label>
+                <select asp-for="GestationalAgeWeeks" class="form-control">
+                    <option value="">Please select an option</option>
+                    <option>Week 1</option>
+                    <option>Week 2</option>
+                    <option>Week 3</option>
+                    <option>Week 4</option>
+                    <option>Week 5</option>
+                    <option>Week 6</option>
+                    <option>Week 7</option>
+                </select>
+                <span asp-validation-for="GestationalAgeWeeks" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="FetalHeartRate" class="control-label"></label>
+                <input type="number" asp-for="FetalHeartRate" class="form-control" />
+                <span asp-validation-for="FetalHeartRate" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="Observations" class="control-label"></label>
+                <input asp-for="Observations" class="form-control" />
+                <span asp-validation-for="Observations" class="text-danger"></span>
+
+            </div>
+            <div class="mb-3">
+                <label asp-for="GenderDetermined" class="control-label"></label>
+                <select asp-for="GenderDetermined" class="form-control">
+                    <option value="">Please select an option</option>
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <span asp-validation-for="GenderDetermined" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Comments" class="control-label"></label>
+                <textarea asp-for="Comments" class="form-control"></textarea>
+                <span asp-validation-for="GenderDetermined" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input type="file" asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+
+            </div>
+            @* <div class="form-group">
+        <label asp-for="FileName" class="control-label"></label>
+        <input asp-action="FileName" class="form-control" />
+        </div>*@
+            <div class="mb-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-controller="PrenatalCare" asp-action="IndexUltrasoundAppointment" class="btn btn-danger" style="width:150px">Back to List</a>
+            </div>
+
+        </form>
+    </div>
+}
+
+
+
+
+
+
+
+

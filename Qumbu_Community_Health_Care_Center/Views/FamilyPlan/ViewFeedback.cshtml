@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Feedbacks>
+@{
+    ViewData["Title"] = "ViewFeedback";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="mt-2 p-2 bg-info text-black rounded">
+            <h2 class="text-center">Feeback List </h2>
+        </div>
+
+       
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table  table-active table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                       Type
+                    </th>
+                    <th>
+                        Side Effects
+                    </th>
+                    <th>
+                        Message
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var fed in Model)
+                {
+                    <tr>
+
+                        <td width="20%">@fed.Name</td>
+                        <td width="20%">@fed.Type</td>
+                        <td width="10%">@fed.experience</td>
+                        <td width="50%">@fed.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-6 text-right  d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-controller="FamilyPlan" asp-action="CreateFeedback" class="btn btn-outline-info">Back</a>
+        </div>
+
+    }
+    else
+    {
+        <p>No Feedback added yet</p>
+    }
+
+</div>

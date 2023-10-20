@@ -1,0 +1,74 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Profiling
+@{
+    Layout = "_CounsellorLayout";
+}
+<div class="mt-2 p-2 bg-white text-center text-white-50 rounded">
+    <h2>Individual Counselling</h2>
+</div>
+    <form method="post" asp-action="CreateConf">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="address">I.Background Of The Case:</label>
+                                    <textarea class="form-control" id="bg" rows="6" placeholder=" "></textarea>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="memberName">II. Counselling Plan: </label>
+                                        @*<input type="text" class="form-control" id="memberName" placeholder=" ">*@
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="validityPeriod">(a) Counselling Approaches</label>
+                                        <select id="CounsellingApproach" asp-for="CounsellingApproach" class="form-control" id="validationName" required>
+                                            <option value="Select" class="bg-opacity-50">Select</option>
+                                            <option value="be">Behavior Counselling</option>
+                                            <option value="co">Cognitive Counselling</option>
+                                            <option value="edu">Educational Counselling</option>
+                                            <option value="hol">Holistic Counselling</option>
+                                            <option value="men">Mental Health Counselling</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="Goals">(b)Counselling Goals:</label>
+                                        <textarea class="form-control" id="Goals" rows="6" placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="comments">III.Comments:</label>
+                                        <textarea class="form-control" id="com" rows="6" placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="address">IV.Recommendations:</label>
+                                        <textarea class="form-control" id="comments" rows="6" placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4 offset-2 row">
+                            <div class="col">
+                                <a asp-action="IndRec" class="btn btn-info w-75">Confirm</a>
+                            </div>
+                            <div class="col">
+                                <a asp-action="CreateRe" class="btn btn-info w-75">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </form>
+
+

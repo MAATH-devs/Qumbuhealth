@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_CounsellorLayout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Referral Card</h5>
+                <p>Patient : Oyama Sodo</p>
+                <p>Referral Date: 22/08/23</p>
+                <p>Appointment Date: 24/08/23</p>
+                <p>Department Referred To: Vaccination</p>
+                <p>Comments: Patient needs attention ASAP</p>
+                @* <button>
+                <a class="nav-link text-dark" asp-controller="Counseller" asp-action="Booking">Click here...</a>
+            </button>*@
+            </div>
+        </div>
+    </div>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+    <h1>Patient</h1>
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+    <br/>
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="SearchStyle.css">
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+<br />
+<img src="~/_Images/mettaworldpeace1.jpg" width="1050" height="300" alt="#">
+<br />
+<br />
+   <div class="row">
+     
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Appointments</h5>
+                        <a href="index.html"><img class="img-responsive" height="268" src="~/images/images/logo/booking.png" ] alt="#" /></a>
+                        <button>
+                            <a class="nav-link text-dark" asp-controller="Counseller" asp-action="Booking">Click here...</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Files</h5>
+                        <a href="index.html"><img class="img-responsive" height="268" src="~/images/images/logo/Files.png" alt="#" /></a>
+                        <button>
+                            <a class="nav-link text-dark" asp-controller="Counseller" asp-action="PatientC">Click here...</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Referrals</h5>
+                        <a href="index.html"><img class="img-responsive" height="268" src="~/images/images/logo/Ref.png" alt="#" /></a>
+
+                        <button>
+                            <a class="nav-link text-dark" asp-controller="Counseller" asp-action="Referral">Click here...</a>
+                        </button>
+                    </div>
+                </div>
+            </div>     
+   </div>
+}

@@ -1,0 +1,168 @@
+﻿@page
+@model RegisterModel
+@{
+    
+    ViewData["Title"] = "Register";
+}
+
+@*for icon*@
+<link rel="icon" href="~/_Images/favicon.ico" type="image/png" />
+<link rel="stylesheet" href="~/https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/StyleSheet/Reg_StyleSheet.css" asp-append-version="true" />
+<div class="row col-xl-12 bg-opacity-50">
+
+    <div class=" text-black  align-content-center">
+        <section class="vh-100 gradient-custom">
+            <div class="container py-5 h-80">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="bg-opacity-50">
+                                <h1 class="text-center text-white">@ViewData["Title"]</h1> @*This displays REGISTER*@
+                                <h6>Create a new account.</h6>
+
+
+                                <hr style="width:100%" />
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.FirstName">First Name</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                            <input asp-for="Input.FirstName" class="form-control border-3 " type="text" placeholder="enter" aria-required="true" />
+                                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.LastName">Last Name</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                            <input asp-for="Input.LastName" class="form-control" autocomplete="LastName" aria-required="true" />
+                                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-4">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.DateOfBirth">Date of Birth</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                            <input asp-for="Input.DateOfBirth" class="form-control" autocomplete="DateOfBirth" aria-required="true" />
+                                            <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                                        </div>
+                                    </div>*@
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.MobileNumber"> Mobile Number</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                          @*  <input asp-for="Input.Address"  />*@
+                                            <input asp-for="Input.MobileNumber" class="form-control" autocomplete="City" aria-required="true" />
+                                            <span asp-validation-for="Input.MobileNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.Email">Email Address</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                            <input asp-for="Input.Email" class="form-control" autocomplete="City" aria-required="true" />
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    @*<div class="col-4">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.Gender">Gender</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating ">
+                                            <select asp-for="Input.Gender" class="form-control ">
+                                                <option value="" class="text-muted">--Select--</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                            <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                                        </div>
+                                    </div>*@
+                                </div>
+
+                                <hr style="width:100%" />
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.Password"></label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-6">
+                                        <div class="collapse-horizontal">
+                                            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                                            <label class="text-danger">*</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+                                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                   
+
+                                </div>
+
+
+
+                                <hr style="width:100%" />
+                                <div class="col-3 ">
+                                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-outline-success ">Register</button>
+                                </div>
+                                @* <div class="form-floating mb-3">
+                                <select asp-for="Input.Role" class="form-control ">
+                                <option value="" class="text-muted">...Select...</option>
+                                <option value="Patient">Patient</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Nurse">Nurse</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Counsellor">Counsellor</option>
+                                </select>
+                                <label asp-for="Input.Role"></label>
+                                <span asp-validation-for="Input.Role" class="text-danger"></span>
+                                </div>*@
+
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

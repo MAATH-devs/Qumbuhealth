@@ -1,0 +1,87 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.MedicalFile
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Walk-in-Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MedicalFile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MedicalID" />
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IDno" class="control-label"></label>
+                <input asp-for="IDno" class="form-control" />
+                <span asp-validation-for="IDno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Province" class="control-label"></label>
+                <input asp-for="Province" class="form-control" />
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <input asp-for="MaritalStatus" class="form-control" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nationality" class="control-label"></label>
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Laguage" class="control-label"></label>
+                <input asp-for="Laguage" class="form-control" />
+                <span asp-validation-for="Laguage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextOfKinFirstName" class="control-label"></label>
+                <input asp-for="NextOfKinFirstName" class="form-control" />
+                <span asp-validation-for="NextOfKinFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextOfKinLastName" class="control-label"></label>
+                <input asp-for="NextOfKinLastName" class="form-control" />
+                <span asp-validation-for="NextOfKinLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextOfKinCellNumber" class="control-label"></label>
+                <input asp-for="NextOfKinCellNumber" class="form-control" />
+                <span asp-validation-for="NextOfKinCellNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

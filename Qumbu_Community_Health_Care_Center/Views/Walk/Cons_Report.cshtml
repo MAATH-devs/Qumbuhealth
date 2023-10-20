@@ -1,0 +1,158 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Medical Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styling for the report */
+        .report-heading {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+
+        .column-divider {
+            border-right: 1px solid #ddd;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+
+        .done-button {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <div class="logo_section ">
+            <a href="index.html"><img class="img-responsive" src="~/_Images/1.png" alt="#" style="max-height: 300px; width: 350px;" /></a>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="report-heading">Patient Medical Report</div>
+
+        <hr style="border-top: 1px solid #ddd; margin: 40px 0;">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="section-heading">Patient Details</div>
+                <label>Patient Name:</label> John Doe<br>
+                <label>Gender:</label> Male<br>
+                <label>Date of Birth:</label> January 15, 1980<br>
+                <label>Contact Number:</label> +1 (123) 456-7890<br>
+            </div>
+            <div class="col-md-1 column-divider"></div>
+            <div class="col-md-2">
+                <div class="section-heading ">Next of Kin</div>
+                <label>Name:</label> Jane Doe<br>
+                <label>Relationship:</label> Spouse<br>
+                <label>Contact Number:</label> +1 (123) 567-8901<br>
+
+            </div>
+            <div class="col-md-1 column-divider"></div>
+
+            <div class="col-md-3">
+                <div class="section-heading">Registration Information</div>
+                <label>Admin Name:</label> Admin User<br>
+                <label>Gender:</label> Female<br>
+                <label>Contact Number:</label> +1 (123) 987-6543<br>
+                <label>Registration Number:</label> REG12345<br>
+                <label>Registration Date:</label> July 15, 2023<br>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid #ddd; margin: 40px 0;">
+
+
+        <div class="section-heading">Consultation</div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="text-decoration-underline">SYMPTOMS</label>
+                <ul>
+                    <li>Fever</li>
+                    <li>Cough</li>
+                    <li>Headache</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <label class="text-decoration-underline">PROCEDURES</label>
+                <ul>
+                    <li>Physical Examination</li>
+                    <li>Blood Pressure Check</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <label class="text-decoration-underline">TREATMENT</label>
+                <ul>
+                    <li>Rest</li>
+                    <li>Hydration</li>
+                    <li>Over-the-counter Medications</li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid #ddd; margin: 40px 0;">
+
+        <div class="section-heading">Prescription</div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="text-decoration-underline">TREATMENT SIDE EFFECTS</label>
+                <ul>
+                    <li>Drowsiness</li>
+                    <li>Dry Mouth</li>
+                    <li>Nausea</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <label class="text-decoration-underline">SUGGESTED TREATMENT</label>
+                <p>Increased Hydration and OTC Pain Relief</p>
+            </div>
+            <div class="col-md-4">
+                <label>COMPLAINTS ABOUT PREVIOUS TREATMENT</label>
+                <ul>
+                    <li>Relief from Fever</li>
+                    <li>Reduced Coughing</li>
+                    <li>Improved Headache</li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border-top: 1px solid #ddd; margin: 40px 0;">
+
+        <div class="section-heading">Doctor List</div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Doctor Name:</label> Dr. Jane Smith<br>
+                <label>Gender:</label> Female<br>
+                <label>Contact Number:</label> +1 (234) 567-8901<br>
+                <label>Office Number:</label> Ext. 123<br>
+            </div>
+            <div class="col-md-4">
+                <label>Doctor Name:</label> Dr. Jane Smith<br>
+                <label>Gender:</label> Female<br>
+                <label>Contact Number:</label> +1 (234) 567-8901<br>
+                <label>Office Number:</label> Ext. 123<br>
+            </div>
+            <div class="col-md-4">
+                <label>Doctor Name:</label> Dr. Jane Smith<br>
+                <label>Gender:</label> Female<br>
+                <label>Contact Number:</label> +1 (234) 567-8901<br>
+                <label>Office Number:</label> Ext. 123<br>
+            </div>
+        </div>
+
+        <div class="done-button">
+            <button class="btn btn-outline-success">Done</button>
+        </div>
+    </div>
+
+</body>
+</html>

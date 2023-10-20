@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.PatientReg>
+@{
+    Layout = "_CounsellorLayout";
+}
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">You have the following form</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Counseller" asp-action="CreateR" class="btn btn-primary">Fill in the form</a>
+        </div>
+        <div class="col-6 text-left">
+            <a asp-controller="Counseller" asp-action="Patient" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Names
+                    </th>
+                    <th>
+                        DOB
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Cell
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Gender
+                    </th>
+                    <th>
+                        Province
+                    </th>
+                    <th>
+                        Race
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Cell
+                    </th>
+                    <th>
+                        Address
+                    </th> 
+                    <th>
+                        Province
+                    </th> 
+                    <th>
+                        Relationship
+                    </th>
+                    @*<th>
+                        Source
+                    </th>
+                    <th>
+                        Experience
+                    </th>
+                    <th>
+                        Health
+                    </th>
+                    <th>
+                        Medication
+                    </th> 
+                    <th>
+                        History
+                    </th> 
+                    <th>
+                        Communication
+                    </th> 
+                    <th>
+                        CurrentStressors
+                    </th> *@
+                    <th>
+                        Edit
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var pa in Model)
+                {
+                    <tr>
+                        <td width="30%">@pa.kinName</td>
+                        <td width="30%">@pa.DOB</td>
+                        <td width="30%">@pa.Address</td>
+                        <td width="30%">@pa.Cell</td>
+                        <td width="30%">@pa.Email</td>
+                        <td width="30%">@pa.Name</td>
+                        <td width="30%">@pa.Cell</td>
+                        <td width="30%">@pa.Address</td> 
+                        <td width="30%">@pa.Province</td>
+                        <td width="30%">@pa.Relationship</td>
+                        @*<td width="30%">@pa.Health</td>
+                        <td width="30%">@pa.Medication</td>
+                        <td width="30%">@pa.History</td>
+                        <td width="30%">@pa.Communication</td>
+                        <td width="30%">@pa.CurrentStressors</t*@d>
+                        <td>
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="Counseller" asp-action="Update" asp-route-ID="@pa.PatientRegId"  class="btn btn-blue-300 mx-1">Updade</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No form has been submitted added yet</p>
+    }
+
+</div>
+
+
+
+
+
+

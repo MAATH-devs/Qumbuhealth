@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .table-heading {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Appointments List</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table-heading">
+                    <tr>
+                        <th class="align-middle">Patient Name</th>
+                        <th class="align-middle">Dr Name</th>
+                        <th class="align-middle">Date Booked</th>
+                        <th class="align-middle">Date of Visit</th>
+                        <th class="align-middle">Reason</th>
+                        <th class="align-middle">Status</th>
+                        <th class="align-middle"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Dr. Smith</td>
+                        <td>2023-07-05</td>
+                        <td>2023-07-10</td>
+                        <td>Checkup</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Pending</option>
+                                <option>Approved</option>
+                                <option>Queued</option>
+                                <option>Postponed</option>
+                                <option>Rebook</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Dr. Johnson</td>
+                        <td>2023-07-06</td>
+                        <td>2023-07-12</td>
+                        <td>Consultation</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Pending</option>
+                                <option>Approved</option>
+                                <option>Queued</option>
+                                <option>Postponed</option>
+                                <option>Rebook</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Michael Brown</td>
+                        <td>Dr. Williams</td>
+                        <td>2023-07-07</td>
+                        <td>2023-07-15</td>
+                        <td>Follow-up</td>
+                        <td>
+                            <select class="form-control">
+                                <option>Pending</option>
+                                <option>Approved</option>
+                                <option>Queued</option>
+                                <option>Postponed</option>
+                                <option>Rebook</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-row mt-3">
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-success">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+
+@if (User.IsInRole("Nurse"))
+{
+    <!DOCTYPE html>
+<html>
+<head>
+        <h1>DASHBOARD</h1>
+
+    <title>Consultation Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2 class="text-left">CONSULTATION</h2>
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="complaints" class="font-weight-bold">Complaints:</label>
+                <textarea class="form-control" id="complaints" placeholder="Write notes for patient's complaints here for Doctor to see and read" rows="4"></textarea>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <label for="healthAdvice" class="font-weight-bold">Health Advice:</label>
+                <textarea class="form-control" id="healthAdvice" placeholder="Write notes for patient's health advice given to patient" rows="4"></textarea>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <label for="treatmentFeedback" class="font-weight-bold">Treatment Feedback:</label>
+                <textarea class="form-control" id="treatmentFeedback" placeholder="Write notes on the effect of the treatment according to the patient" rows="4"></textarea>
+            </div>
+        </div>
+        <hr>
+
+        <div class="form-row mt-3">
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <h1>CONSULTATION</h1>
+        <title>Consultation Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            .heading {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="heading">Consultation Notes</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="complaints">Complaints:</label>
+                            <textarea class="form-control" id="complaints" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthAdvice">Health Advice:</label>
+                            <textarea class="form-control" id="healthAdvice" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="treatmentFeedback">Treatment Feedback:</label>
+                            <textarea class="form-control" id="treatmentFeedback" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-6">
+                    <h2 class="heading">Doctor Notes</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="prescribedTreatment">Prescribed Treatment:</label>
+                            <div class="input-group">
+                                <textarea class="form-control" id="prescribedTreatment" rows="4"></textarea>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-outline-primary">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="text-right mt-4">
+                        <button type="button" class="btn btn-primary btn-lg col-4">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    </html>
+
+}

@@ -1,0 +1,274 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.FamilyReg>
+@{
+    ViewData["Title"] = "ViewFamilyReg";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+@*
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+@if (TempData["Result"] != null)
+{
+    <div id="myModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title">Screening Result</h3>
+                    <button type="button" id="close" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body">
+                    @if (Convert.ToString(TempData["_Image"]) == "1")
+                    {
+                        <img src="~/_Images/pill_.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "2")
+                    {
+                        <img src="~/_Images/logo/Injection.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "3")
+                    {
+                        <img src="~/_Images/logo/Injection 2.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "4")
+                    {
+                        <img src="~/_Images/logo/implant1.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "5")
+                    {
+                        <img src="~/_Images/logo/loop1.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "6")
+                    {
+                        <img src="~/_Images/Viganal ring.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"></h2>
+        </div>
+       
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+         
+        <table class="table   table-bordered table-striped" >
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        1.When was the last time you enganged in sexual intercourse?"
+                    </th>
+                    <th>
+                        2.When was the last time you had your periods?
+                    </th>
+                    <th>
+                        3.Do you have a child?
+                    </th>
+                    <th>
+                        4.Have experince any morning sickness?
+                    </th>
+                    <th>
+                        5.do you have allergies?
+                    </th>
+                    <th>
+                        6.are you taking any medication?
+                    </th>
+                    <th>
+                        7.Have you ever used any contraceptives?
+                    </th>
+                    <th>
+                        8.Choose any birth Control of your choice
+                    </th>
+                    <th>
+                        9.Choose any birth Control of your choice
+                    </th>
+                    <th>
+                        10.Choose any birth Control of your choice
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var fed in Model)
+                {
+                    <tr>
+                        <td>@fed.MainUser.FirstName @fed.MainUser.LastName</td>
+                        <td>@fed.Date</td>
+                        <td >@fed.Status</td>
+                    
+                        <td>@if(fed.intercourse == 3)
+                            {
+                                <p>2/3 days</p>
+                            }
+                            else if (fed.intercourse == 2)
+                            {
+                                <p> 1 Week</p>
+                            }
+                            else if (fed.intercourse == 1)
+                            {
+                                <p>2 Week</p>
+                            }
+                            else if (fed.intercourse == 4)
+                            {
+                                <p> 4 Week</p>
+                            }
+
+                        </td>
+                        <td>@if(fed.period == 3)
+                            {
+                                <p> This Week</p>
+                            }
+                            else if (fed.period == 3)
+                            {
+                                <p> last Week</p>
+                            }
+                            else if (fed.period == 2)
+                            {
+                                <p>last Month</p>
+                            }
+                            else if (fed.period == 2)
+                            {
+                                <p>Past Month</p>
+                            }
+
+                        </td>
+                        <td>@if (fed.child == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        </td>
+                        <td>@if(fed.experience == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>@if(fed.allaegies == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        </td>
+                        <td>@if(fed.medication == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>@if(fed.contraceptives == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>@if(fed.condom == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.normal == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (fed.smoke == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+                    </tr>
+                   
+                }
+            </tbody>
+        </table>
+        <script src="~/js/site.js"></script>
+        <div class="col-6 text-right  d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-controller="FamilyPlan" asp-action="CreateFamilyReg" class="btn btn-outline-info">Back</a>
+        </div>
+
+    }
+    else
+    {
+        <p>No Chat added yet</p>
+    }
+
+</div>
+

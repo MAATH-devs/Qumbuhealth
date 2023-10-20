@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.MedicalFile>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Walk-in-Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Laguage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextOfKinFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextOfKinLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextOfKinCellNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaritalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Laguage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextOfKinFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextOfKinLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextOfKinCellNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MedicalID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MedicalID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MedicalID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

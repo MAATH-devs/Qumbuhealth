@@ -1,0 +1,62 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.UltrasoundAppointment
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+<div class="row pt-4">
+    <div class="col-6">
+        <h1 class="display-4">Delete Ultrasound and Images</h1>
+    </div>
+
+</div>
+<br />
+<br />
+@*<hr />*@
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="DeleteUltrasound" enctype="multipart/form-data" method="post">
+            <input asp-for="Id" hidden/>
+            <div class="form-group">
+                <label asp-for="AppointmentDate" class="control-label"></label>
+                <input type="date" asp-for="AppointmentDate" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GestationalAgeWeeks" class="control-label"></label>
+                <input type="week" asp-for="GestationalAgeWeeks" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="FetalHeartRate" class="control-label"></label>
+                <input type="number" asp-for="FetalHeartRate" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Observations" class="control-label"></label>
+                <input asp-for="Observations" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GenderDetermined" class="control-label"></label>
+                <input type="text" asp-for="GenderDetermined" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label"></label>
+                <input asp-for="Comments" disabled class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input type="file" asp-for="ImageFile" disabled class="form-control" />
+            </div>
+            @* <div class="form-group">
+            <label asp-for="FileName" class="control-label"></label>
+            <input asp-action="FileName" class="form-control" />
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-controller="PrenatalCare" asp-action="IndexUltrasoundAppointment" class="btn btn-danger" style="width:150px">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+
+</div>
+

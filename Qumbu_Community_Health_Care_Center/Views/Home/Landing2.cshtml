@@ -1,0 +1,365 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    Layout = "_Landing2";
+  
+}
+<link rel="stylesheet" href="~/css/StyleSheet/Landing2StyleSheet.css">
+
+<style>
+    #dash-con {
+        background: rgba( 0, 42, 255, 0.75 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 0px );
+        -webkit-backdrop-filter: blur( 0px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+        #dash-con:hover {
+            background: rgba( 0, 42, 255, 1 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 20px );
+            -webkit-backdrop-filter: blur( 20px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+</style>
+
+@if (User.IsInRole("Admin"))
+{
+    Layout = "_Walk-in-Layout";
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .diagonal-container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .diagonal-card {
+            transform: translateY(-50%) rotate(-45deg);
+            position: relative;
+            top: 40%;
+            margin: 40px;
+        }
+
+    </style>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-primary p-3">
+                        <h5 class="card-title text-center mb-4" style="color: black;">Patient Registration</h5>
+                        <img src="~/images/patient-registration-17674809.jpg" alt="Registration image" class="img-fluid" style="max-height: 145px; width: 265px;">
+                        <button class="btn btn-success btn-block text-center mt-3">Register</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-secondary p-3">
+                        <h5 class="card-title" style="color: black;">Doctor Availability</h5>
+                        <img class="card-img-top" src="~/images/dr avail.png" alt="Doctor 2">
+                        <button class="btn btn-success btn-block text-center mt-3">Check</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body bg-primary p-3">
+                        <h5 class="card-title" style="color: black;">Appointment</h5>
+                        <img class="card-img-top" src="~/images/appointment.jpg" alt="Doctor 2">
+                        <button class="btn btn-success btn-block text-center mt-3">Manage</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="row diagonal-container">
+            
+                <div class="col-md-3 diagonal-card">
+                    <div class="card text-center bg-secondary p-3">
+                        <h5 class="card-title text-center mb-4" style="color: black;">Attendance Report</h5>
+                        <img src="~/images/att_rep.png" alt="Report image" class="img-fluid">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-success" id="button5">Generate</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 diagonal-card">
+                    <div class="card text-center bg-primary p-3">
+                        <h5 class="card-title text-center mb-4" style="color: black;">Manage Queue</h5>
+                        <img src="~/images/queue card.jpg" alt="Queue image" class="img-fluid">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-success" id="button4">Manage</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 diagonal-card">
+                    <div class="card text-center bg-secondary p-3">
+                        <h5 class="card-title text-center mb-4" style="color: black;">Create File</h5>
+                        <img src="~/images/medical-781422.jpg" alt="File image" class="img-fluid">
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-success">Create</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+}
+else if (User.IsInRole("Nurse"))
+{
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+     
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a asp-action="Nurse_Dashboard" asp-controller="Walk">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                             <img src="~/_Images/walkIN.png" style="width: 79px" /> 
+                            <div class="ms-3">
+                                <h4 class="mb-2">Walk-In<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+      
+
+           
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a asp-action="Nurse" asp-controller="FamilyPlan">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                                     <img src="~/_Images/FamPlan.png" style="width: 79px" /> 
+                            <div class="ms-3">
+                                <h4 class="mb-2">Family Plan<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+       
+
+          
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <a asp-action="NurseDashboard" asp-controller="PreNatalCare">
+                    <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                         <img src="~/_Images/PreNat.jpg" style="width: 79px" /> 
+                        <div class="ms-3">
+                            <h4 class="mb-2">Pre-Natal Care<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                        </div>
+                    </div>
+                </a>
+                </div>
+
+
+            <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a asp-action="Nurse" asp-controller="Vaccs">
+                    <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/Vacc.jpg" style="width: 79px" />
+                        <div class="ms-3">
+                            <h4 class="mb-2">Vaccination<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+          
+
+        </div>
+    </div>
+}
+else if (User.IsInRole("Patient"))
+{
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+  
+    @* <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-xxl">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title">Please create a new file</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-dialog-scrollable">
+                    <div >
+                        <partial name="~/Views/Medical_File/Create_File.cshtml" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> *@
+    @* <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-xxl">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h3 class="modal-title">Please create a new file</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Vertically centered modal -->
+                <div class="modal-dialog modal-dialog-centered">
+                    Please remember to create your medical file first
+                </div>
+
+            </div>
+        </div>
+    </div> *@
+    
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+                
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a asp-action="Patient" asp-controller="FamilyPlan">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/FamPlan.png" width="200" height="135" />
+                        <div class="ms-3">
+                                <h4 class="mb-2">Family Planning<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+               
+            
+               
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a asp-action="Patient" asp-controller="Counseller">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/counselling.jpg" width="200" />
+                        <div class="ms-3">
+                                <h4 class="mb-2">Counselling<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+            
+
+        
+               
+            <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a asp-action="Patient" asp-controller="Vaccs">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/Vacc.jpg" width="200" />
+                    <div class="ms-3">
+                        <h4 class="mb-2">Vaccination<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </div>
+                </div>
+                </a>
+            </div>
+               
+            <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a asp-action="Patient" asp-controller="PreNatalCare">
+                    <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/PreNat.jpg" width="200" height="135" />
+                        <div class="ms-3">
+                            <h4 class="mb-2">Pre-Natal Care<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+
+        </div>
+    </div>
+}
+else if (User.IsInRole("Doctor"))
+{
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+           
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     <a asp-action="Doctor_Dash" asp-controller="walk">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                         <img src="~/_Images/walkIN.png" style="width: 79px" /> 
+                        <div class="ms-3">
+                            <h4 class="mb-2">Walk-In<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                        </div>
+                        </div>
+                    </a>
+                </div>
+            
+
+           
+              <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a asp-action="IndexAppo" asp-controller="Vaccs">
+                    <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                         <img src="~/_Images/Vacc.jpg" style="width: 79px" /> 
+                        <div class="ms-3">
+                            <h4 class="mb-2">Vaccination<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                        </div>
+                    </div>
+                </a>
+              </div>
+            
+
+
+        </div>
+    </div>
+}
+else if (User.IsInRole("Counsellor"))
+{
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+            
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a asp-action="Counsellor" asp-controller="Counseller">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                        <img src="~/_Images/counselling.jpg" width="200" />
+                        <div class="ms-3">
+                                <h4 class="mb-2">Counselling<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+           
+
+        </div>
+    </div>
+}
+else if (User.IsInRole("Unit-Manager"))
+{
+    <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+           
+                <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                     <a asp-action="Unit_Manager" asp-controller="Vaccs">
+                        <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                             <img src="~/_Images/Vacc.jpg" style="width: 79px" /> 
+                            <div class="ms-3">
+                                <h4 class="mb-2">Vaccination<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            
+
+        </div>
+    </div>
+}
+
+
+
+
+

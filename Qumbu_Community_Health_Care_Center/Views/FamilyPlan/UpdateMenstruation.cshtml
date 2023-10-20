@@ -1,0 +1,63 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Menstruation
+@{
+    ViewData["Title"] = "UpdateMenstruation";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" asp-action="UpdateMenstruation" class=" form-horizontal bg-green-300  p-2 text-dark bg-opacity-20">
+            <input asp-for="MenstruationId" hidden />
+                <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
+
+                <div class=" form-group">
+                    <label asp-for="Date"></label>
+                    <div col-sm-5>
+                        <input asp-for="Date" class=" form-control" id="validationName" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="Date" class=" text-danger"></span>
+                </div>
+                <div class=" form-group">
+                    <label asp-for="EndDate"></label>
+                    <div col-sm-10>
+                        <input asp-for="EndDate" class=" form-control" id="validationRace" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="EndDate" class=" text-danger"></span>
+
+                </div>
+                <div class=" form-group">
+                    <label asp-for="difference"></label>
+                    <div col-sm-10>
+                        <input asp-for="difference" class=" form-control" id="validationRace" required />
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="difference" class=" text-danger"></span>
+
+                </div>
+                <div class="row">
+
+
+
+
+                    <div class=" form-group row">
+                        <div class=" col-8 offset-2 row">
+                            <div class=" col">
+                                <input type="submit" class="btn-primary btn-lg  " value="submit" />
+                            </div>
+                            <div class=" col-1">
+                                <a asp-action="TrackMenstruactioList" class=" btn btn-primary btn-lg ">List</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+        </form>
+    </div>
+
+</div>

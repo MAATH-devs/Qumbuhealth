@@ -1,0 +1,733 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>VACCINATION</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- site icon -->
+    <link rel="icon" href="~/images/images/fevicon.png" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/css/css/css/css/bootstrap.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="~/css/css/css/css/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/css/css/css/css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="~/css/css/css/css/colors.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="~/css/css/css/cssbootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="~/css/css/css/css/perfect-scrollbar.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/css/css/css/csscustom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+@*<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>*@
+@*</div>*@
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            @if (User.IsInRole("Admin"))
+            {
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="~/_Images/2.png" alt="#" /></div>
+                                <div class="user_info">
+                                    <a id="manage" class="btn btn-secondary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                                        Hello! @UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName
+                                    </a>
+                                    @* <ul class="order-last nav-item">
+                                <partial name="_LoginPartial" /></ul>*@
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="sidebar_blog_2">
+                <h4>General</h4>
+                <ul class="list-unstyled components">
+                </ul>
+                </div>*@
+                    <div class="sidebar_blog_2">
+                        @* <h4>General</h4>*@
+                        <button>
+                            <h5><a class="nav-link text-dark" asp-area="" asp-controller="Vacc" asp-action="Dashboard">Avatars</a></h5>
+                            @* have to fix this*@
+                            <h4><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>DASHBOARD</span></a></h4>
+                        </button>
+
+                        <ul class="list-unstyled components">
+                            @*<li class="active">
+                        <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Vaccination</span></a>
+                        <ul class="collapse list-unstyled" id="dashboard">
+                        <li>
+                        <a href="dashboard.html">> <span>Default Dashboard</span></a>
+                        </li>
+                        <li>
+                        <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+                        </li>
+                        </ul>
+                        </li>*@
+                            <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>PATIENT FILE</span></a></li>
+                            @*<li>
+                        <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Family Plan</span></a>
+                        <ul class="collapse list-unstyled" id="element">
+                        <li><a href="general_elements.html">> <span>General Elements</span></a></li>
+                        <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+                        <li><a href="icons.html">> <span>Icons</span></a></li>
+                        <li><a href="invoice.html">> <span>Invoice</span></a></li>
+                        </ul>
+                        </li>*@
+                            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+                            @*<li>
+                        <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Pre-Natal-Care</span></a>
+                        <ul class="collapse list-unstyled" id="apps">
+                        <li><a href="email.html">> <span>Email</span></a></li>
+                        <li><a href="calendar.html">> <span>Calendar</span></a></li>
+                        <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+                        </ul>
+                        </li>
+                        <li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
+                        <li>
+                        <a href="contact.html">
+                        <i class="fa fa-paper-plane red_color"></i> <span>Contact</span>
+                        </a>
+                        </li>
+                        <li class="active">
+                        <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Counselling</span></a>
+                        <ul class="collapse list-unstyled" id="additional_page">
+                        <li>
+                        <a href="profile.html">> <span>Profile</span></a>
+                        </li>
+                        <li>
+                        <a href="project.html">> <span>Projects</span></a>
+                        </li>
+                        <li>
+                        <a href="login.html">> <span>Login</span></a>
+                        </li>
+                        <li>
+                        <a href="404_error.html">> <span>404 Error</span></a>
+                        </li>
+                        </ul>*@
+                            @* </li>*@
+                            @*<li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
+                        <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>*@
+                            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                @* --TOPBAR--*@
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><img class="img-thumbnail " src="~/_Images/Vaccs/menu-bar.png" width="32" height="32" alt="#" /></button>
+                            <div class="logo_section">
+                                <h2><a href="index.html"><img class="img-responsive fa-4x" src="~/_Images/2.png" width="100" height="100" alt="#" /></a></h2>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    @* <ul>
+                                <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                </ul>*@
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                                @*<img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" />*@<span class="text-light">
+                                                    ADMIN
+                                                    @*@UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName*@
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <a class="dropdown-item">
+                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                        <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                                                    </form>
+                                                </a>
+                                                @*                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            *@
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            }
+            @if (User.IsInRole("Patient"))
+            {
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="~/_Images/3.png" alt="#" /></div>
+                                <div class="user_info">
+                                    <h6>
+                                        <span class="text-light">
+                                            @UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName
+                                        </span>
+                                    </h6>
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <button> <h5><a class="nav-link text-dark" asp-area="" asp-controller="Vaccs" asp-action="Dashboard">Dashboard</a></h5></button>
+                        @* <h4><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>DASHBOARD</span></a></h4>*@
+                        <ul class="list-unstyled components">
+                            @*<li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>MY FILE</span></a></li>*@
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexRecord"><i class="bi bi-folder"></i>MY RECORDS</a></span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexScree"><i class="bi bi-file-earmark-text"></i>  SCREENING TOOL</a></span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexAppo"><i class="bi bi-calendar-check"></i>  APPOINTMENTS</a> </span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexFee"><i class="bi bi-newspaper"></i> FEEDBACK</a></span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexReport"><i class="bi bi-filetype-pdf"></i> REPORTS</a></span></li>
+                            <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+
+
+                            @* <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>SCREENING TOOL</span></a></li>
+                        <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+                        <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>FEEDBACK</span></a></li>
+                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>REPORTS</span></a></li>*@
+                        </ul>
+                    </div>
+                </nav>
+                @* --TOPBAR--*@
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><img class="img-thumbnail " src="~/_Images/Vaccs/menu-bar.png" width="32" height="32" alt="#" /></button>
+                            <div class="logo_section">
+                                <h2><a href="index.html"><img class="img-responsive fa-4x" src="~/_Images/2.png" width="100" height="100" alt="#" /></a></h2>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    @* <ul>
+                                <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                </ul>*@
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                                @*<img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" />*@<span class="text-light">
+                                                    PATIENT
+                                                    @*@UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName*@
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <a class="dropdown-item">
+                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                        <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                                                    </form>
+                                                </a>
+                                                @*                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            *@
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            }
+            @if (User.IsInRole("Unit-Manager"))
+            {
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="~/_Images/3.png" alt="#" /></div>
+                                <div class="user_info">
+                                    <h6>
+                                        <span class="text-light">
+                                            @UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName
+                                        </span>
+                                    </h6>
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <button> <h5><a class="nav-link text-dark" asp-area="" asp-controller="Vaccs" asp-action="Dashboard">Dashboard</a></h5></button>
+                        <ul class="list-unstyled components">
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexStock"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/stock.png" width="40" height="40" alt="#" /> STOCK</a></span></li>
+
+                            @*<li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexScree"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/File.png" width="40" height="40" alt="#" />  SCREENING TOOL</a></span></li>
+
+                        <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexAppo"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/Appointment.png.png" width="40" height="40" alt="#" />  APPOINTMENTS</a> </span></li>
+
+                        <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexFee"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/feedback.png.png" width="40" height="40" alt="#" /> FEEDBACK</a></span></li>
+
+                        <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="Patient"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/PReport.png" width="40" height="40" alt="#" /> REPORTS</a></span></li>*@
+
+                        </ul>
+                    </div>
+                </nav>
+                @* --TOPBAR--*@
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><img class="img-thumbnail " src="~/_Images/Vaccs/menu-bar.png" width="32" height="32" alt="#" /></button>
+                            <div class="logo_section">
+                                <h2><a href="index.html"><img class="img-responsive fa-4x" src="~/_Images/2.png" width="100" height="100" alt="#" /></a></h2>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    @* <ul>
+                                <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                </ul>*@
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                                @*<img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" />*@<span class="text-light">
+                                                    UNIT MANAGER
+                                                    @*@UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName*@
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <a class="dropdown-item">
+                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                        <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                                                    </form>
+                                                </a>
+                                                @*                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            *@
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+            }
+            @if (User.IsInRole("Doctor"))
+            {
+                <nav id="sidebar">
+                    <div class="sidebar_blog_1">
+                        <div class="sidebar-header">
+                            <div class="logo_section">
+                                <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_user_info">
+                            <div class="icon_setting"></div>
+                            <div class="user_profle_side">
+                                <div class="user_img"><img class="img-responsive" src="~/_Images/3.png" alt="#" /></div>
+                                <div class="user_info">
+                                    <h6>
+                                        <span class="text-light">
+                                            @UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName
+                                        </span>
+                                    </h6>
+                                    <p><span class="online_animation"></span> Online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar_blog_2">
+                        <button> <h5><a class="nav-link text-dark" asp-area="" asp-controller="Vaccs" asp-action="Dashboard">Dashboard</a></h5></button>
+                        @* <h4><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>DASHBOARD</span></a></h4>*@
+                        <ul class="list-unstyled components">
+                            @*<li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>MY FILE</span></a></li>*@
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexRecord"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/PFile.png" width="40" height="40" alt="#" /> PATIENT RECORDS</a></span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexAppo"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/Appointment.png.png" width="40" height="40" alt="#" />  APPOINTMENTS</a> </span></li>
+
+                            <li><span><a class="nav-link text-light" asp-area="" asp-controller="Vaccs" asp-action="IndexFee"><img class="img-responsive fa-4x" src="~/_Images/Vaccs/feedback.png.png" width="40" height="40" alt="#" /> FEEDBACK</a></span></li>
+
+
+
+                            @* <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>SCREENING TOOL</span></a></li>
+                        <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+                        <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>FEEDBACK</span></a></li>
+                        <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>REPORTS</span></a></li>*@
+                        </ul>
+                    </div>
+                </nav>
+                @* --TOPBAR--*@
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><img class="img-thumbnail " src="~/_Images/Vaccs/menu-bar.png" width="32" height="32" alt="#" /></button>
+                            <div class="logo_section">
+                                <h2><a href="index.html"><img class="img-responsive fa-4x" src="~/_Images/2.png" width="100" height="100" alt="#" /></a></h2>
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    @* <ul>
+                                <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                </ul>*@
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                                @*<img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" />*@<span class="text-light">
+                                                    DOCTOR
+                                                    @*@UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName*@
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <a class="dropdown-item">
+                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                        <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                                                    </form>
+                                                </a>
+                                                @*                                                <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                            *@
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            }
+
+
+
+
+
+
+
+
+
+            @* <nav id="sidebar">
+            <div class="sidebar_blog_1">
+            <div class="sidebar-header">
+            <div class="logo_section">
+            <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+            </div>
+            </div>
+            <div class="sidebar_user_info">
+            <div class="icon_setting"></div>
+            <div class="user_profle_side">
+            <div class="user_img"><img class="img-responsive" src="images/layout_img/user_img.jpg" alt="#" /></div>
+            <div class="user_info">
+            <h6>John David</h6>
+            <p><span class="online_animation"></span> Online</p>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="sidebar_blog_2">
+            <h4>General</h4>
+            <ul class="list-unstyled components">*@
+            @* @if (User.IsInRole("Admin"))
+            {
+            <li class="active">
+            <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>PATIENT FILE</span></a>
+            <ul class="collapse list-unstyled" id="dashboard">
+            <li>
+            <a href="dashboard.html">> <span>Default Dashboard</span></a>
+            </li>
+            <li>
+            <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+            </li>
+            </ul>
+            </li>
+            <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>PATIENT FILE</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+            }*@@*
+            @if (User.IsInRole("Patient"))
+            {*@@*
+            <li class="active">
+            <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>PATIENT FILE</span></a>
+            <ul class="collapse list-unstyled" id="dashboard">
+            <li>
+            <a href="dashboard.html">> <span>Default Dashboard</span></a>
+            </li>
+            <li>
+            <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+            </li>
+            </ul>
+            </li>*@
+            @* <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span> DASHBORD</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>MY RECORDS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>FEEDBACK</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>REPORTS</span></a></li>
+            }*@
+            @*                        @if (User.IsInRole("Doctor"))
+            {
+
+            <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span> DASHBORD</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>PATIENT RECORDS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>FEEDBACK</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>REPORTS</span></a></li>
+            }
+            @if (User.IsInRole("Unit Manager"))
+            {
+
+            <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span> DASHBORD</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>PATIENT RECORDS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>FEEDBACK</span></a></li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>REPORTS</span></a></li>
+            }*@
+            @*    </ul>
+            </div>
+            <div class="sidebar_blog_2">
+            <h4>General</h4>
+            <ul class="list-unstyled components">
+            <li class="active">
+            <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-dashboard yellow_color"></i> <span>Vaccination</span></a>
+            <ul class="collapse list-unstyled" id="dashboard">
+            <li>
+            <a href="dashboard.html">> <span>Default Dashboard</span></a>
+            </li>
+            <li>
+            <a href="dashboard_2.html">> <span>Dashboard style 2</span></a>
+            </li>
+            </ul>
+            </li>
+            <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>PATIENT FILE</span></a></li>
+            <li>
+            <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Family Plan</span></a>
+            <ul class="collapse list-unstyled" id="element">
+            <li><a href="general_elements.html">> <span>General Elements</span></a></li>
+            <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+            <li><a href="icons.html">> <span>Icons</span></a></li>
+            <li><a href="invoice.html">> <span>Invoice</span></a></li>
+            </ul>
+            </li>
+            <li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>APPOINTMENTS</span></a></li>
+            <li>
+            <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Pre-Natal-Care</span></a>
+            <ul class="collapse list-unstyled" id="apps">
+            <li><a href="email.html">> <span>Email</span></a></li>
+            <li><a href="calendar.html">> <span>Calendar</span></a></li>
+            <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+            </ul>
+            </li>
+            <li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>
+            <li>
+            <a href="contact.html">
+            <i class="fa fa-paper-plane red_color"></i> <span>Contact</span>
+            </a>
+            </li>
+            <li class="active">
+            <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i> <span>Counselling</span></a>
+            <ul class="collapse list-unstyled" id="additional_page">
+            <li>
+            <a href="profile.html">> <span>Profile</span></a>
+            </li>
+            <li>
+            <a href="project.html">> <span>Projects</span></a>
+            </li>
+            <li>
+            <a href="login.html">> <span>Login</span></a>
+            </li>
+            <li>
+            <a href="404_error.html">> <span>404 Error</span></a>
+            </li>
+            </ul>
+            </li>
+            <li><a href="map.html"><i class="fa fa-map purple_color2"></i> <span>Map</span></a></li>
+            <li><a href="charts.html"><i class="fa fa-bar-chart-o green_color"></i> <span>Charts</span></a></li>
+            <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li>
+            </ul>*@
+            @*     </div>
+            </nav>*@
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+                <!-- topbar -->
+                @*<div class="topbar">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="full">
+                <button type="button" id="sidebarCollapse" class="sidebar_toggle"><img class="img-thumbnail " src="~/_Images/Vaccs/menu-bar.png" width="32" height="32" alt="#" /></button>
+                <div class="logo_section">
+                <h2><a href="index.html"><img class="img-responsive fa-4x" src="~/_Images/2.png" width="100" height="100" alt="#" /></a></h2>
+                </div>
+                <div class="right_topbar">
+                <div class="icon_info">
+
+                <ul class="user_profile_dd">
+                <li>
+                <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-light">UNIT MANAGER
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="profile.html">My Profile</a>
+                <a class="dropdown-item" href="settings.html">Settings</a>
+                <a class="dropdown-item" href="help.html">Help</a>
+                <a class="dropdown-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                </form></a>
+                </div>
+                </li>
+                </ul>
+                </div>
+                </div>
+                </div>
+                </nav>
+                </div>*@
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                </div>
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="~/js/js/jquery.min.js"></script>
+    <script src="~/js/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- wow animation -->
+    <script src="~/js/js/animate.js"></script>
+    <!-- select country -->
+    <script src="~/js/js/bootstrap-select.js"></script>
+    <!-- owl carousel -->
+    <script src="~/js/js/owl.carousel.js"></script>
+    <!-- chart js -->
+    <script src="~/js/js/Chart.min.js"></script>
+    <script src="~/js/js/Chart.bundle.min.js"></script>
+    <script src="~/js/js/utils.js"></script>
+    <script src="~/js/js/analyser.js"></script>
+    <!-- nice scrollbar -->
+    <script src="~/js/js/perfect-scrollbar.min.js"></script>
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- custom js -->
+    <script src="~/js/js/custom.js"></script>
+    <script src="~/js/js/chart_custom_style1.js"></script>
+</body>
+</html>
+
+
+
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Qumbu_Community_Health_Care_Center</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+@* <link rel="stylesheet" href="~/Qumbu_Community_Health_Care_Center.styles.css" asp-append-version="true" />*@
+@*</head>
+<body>
+    <header>
+        <div id="header">
+            <img width="110" height="75" src="~/css/LOGO.png" alt="" />
+
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span> Menu
+                </button>
+                <div class="order-lg-last">
+
+                    <a class="btn btn-success" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    <a class="btn btn-success" id="login" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </div>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">About us</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Team</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Departments</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>*@
+@*</html>*@
+
+
+

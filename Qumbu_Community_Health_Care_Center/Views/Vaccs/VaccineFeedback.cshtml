@@ -1,0 +1,120 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.FeedbackV
+@{
+    Layout = "Vaccs";
+}
+
+@if (User.IsInRole("Patient"))
+{
+    <div class="mx-0 mx-sm-auto">
+        <div class="card w-75">
+            <div class="card-header bg-primary">
+
+                <h3 class="card-title text-white mt-2" id="exampleModalLabel">FEEDBACK REQUEST</h3>
+            </div>
+            <div class="modal-body">
+                <div class="border p-3" @* style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgVBTQDFavmfdWftDThY_tcu47ntl-n7M90Q&usqp=CAU');" *@>
+                    <div class="text-center">
+                        <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+                        <h4>
+                            <strong>Your opinion matters</strong>
+                        </h4>
+                        <h4>
+                            Have some ideas how to improve our service?
+                            <strong>Give us your feedback.</strong>
+                        </h4>
+                    </div>
+                </div>
+
+                <hr />
+                <form method="post" asp-action="VaccineFeedback">
+                    <div class="border p-3 #FBD603">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>@*validation*@
+                        <div class="form-group row">
+                            <h2 class="text-black-50 pl-3">FEEDBACK</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4><label asp-for="Name"></label></h4>@*These names come from our properties in the model *@
+                                            <input asp-for="Name" class="form-control box mb-2" type="text" placeholder="Type your name here" />
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <h4><label asp-for="Surname"></label></h4>
+                                            <input asp-for="Surname" class="form-control" type="text" placeholder="Type your surname her" />
+                                            <span asp-validation-for="Surname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <h4 class="text-center">YOUR RATING:</h4>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <div>
+                                                <input asp-for="rating1" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label asp-for="rating1" class="control-label"></label>
+                                            </div>
+                                            <div>
+                                                <input asp-for="rating2" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label asp-for="rating2" class="control-label"></label>
+                                            </div>
+                                            <div>
+                                                <input asp-for="rating3" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label asp-for="rating3" class="control-label"></label>
+                                            </div>
+                                            <div>
+                                                <input asp-for="rating4" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label asp-for="rating4" class="control-label"></label>
+                                            </div>
+                                            <div>
+                                                <input asp-for="rating5" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label asp-for="rating5" class="control-label"></label>
+                                            </div>
+                                            
+                                        </div>
+                     
+                                    </div>
+                                </div>         
+                                <div class="col-6">
+                                    <h3><label asp-for="Comment" row="4"></label></h3>
+                                    <input asp-for="Comment" class="form-control" type="text" placeholder="Type your comment here....." row="4" />
+                                    <span asp-validation-for="Comment" class="text-danger" row="4"></span>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <div class="col-8 offset-2 row">
+                                        <div class="col">
+                                            <input type="submit" class="btn btn-info w-75 bi bi-arrow-left-circle" value="SUBMIT" />
+                                        </div>
+                                        <div class="col">
+                                            <a asp-action="IndexFeedback" class="btn btn-danger w-75"><i class="bi bi-arrow-left-circle"></i>BACK</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           @*  <div class="card-footer text-end">
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75 bi bi-arrow-left-circle" value="SUBMIT" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="IndexFeedback" class="btn btn-danger w-75"><i class="bi bi-arrow-left-circle"></i>BACK</a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div> *@
+        </div>
+    </div>
+}

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.FeedbackV>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of your screenings</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Vaccs" asp-action="VaccineFeedback" class="btn btn-primary"><i class="bi bi-plus-circle"></i> SCREEN YOURSELF</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        @*<table class="table table-bordered table-striped" style="width:100%">*@
+        <table class="table table-info table-hover">
+
+            <thead>
+                <tr>
+                    <th>
+                        Patient
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Surname
+                    </th>
+                    <th>
+                        rating1
+                    </th>
+                    <th>
+                        rating2
+                    </th>
+                    <th>
+                        rating3
+                    </th>
+                    <th>
+                        rating4
+                    </th>
+                    <th>
+                        rating5
+                    </th>
+                    <th>
+                        Comment
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var Fee in Model)
+                {
+                    <tr>
+                        <td width="20%">@Fee.Name</td>
+                        <td width="20%">@Fee.Surname</td>
+                        <td width="20%">
+                            @if (Fee.rating1 == 1)
+                            {
+                                <p> Very Good</p>
+                            }
+                          
+                        </td>
+                        <td width="20%">
+                            @if (Fee.rating2 == 2)
+                            {
+                                <p>Good</p>
+                            }
+                          
+                        </td>
+                        <td width="20%">
+                            @if (Fee.rating3 == 3)
+                            {
+                                <p>Mediocre</p>
+                            }
+                        
+                        </td>
+                        <td width="20%">
+                            @if (Fee.rating4 == 4)
+                            {
+                                <p>Bad</p>
+                            }
+                     
+                        </td>
+                        <td width="20%">
+                            @if (Fee.rating5 == 5)
+                            {
+                                <p>Very Bad</p>
+                            }
+                        
+                        </td>
+                        <td width="20%">@Fee.Comment</td>
+
+                        <td>
+                            <a asp-controller="Vaccs" asp-action="Update" asp-route-ID="@Fee.FeedbackID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                            <a asp-controller="Vaccs" asp-action="Delete" asp-route-ID="@Fee.FeedbackID" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Avatars created yet</p>
+    }
+
+</div>

@@ -1,0 +1,172 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.ScreeningTool
+
+@{
+    Layout = "Vaccs";
+}
+<div class="mx-0 mx-sm-auto">
+    <div class="card w-75">
+        <div class="card-body ">
+            <div class="card-header bg-primary">
+
+                <h3 class="card-title text-white mt-2" id="exampleModalLabel"> SELF SCREENING TOOL</h3>
+            </div>
+            <form method="post" asp-action="Screen">
+                <div class="border p-3 #FBD603">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>@*validation*@
+                    @*  <div class="form-group row">
+                    <h2 class="text-black-50 pl-3">SCREENING TOOL</h2>
+                    </div> *@
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <div class="col-12">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Question1" class="control-label"></label>
+                                            <div class="form-check">
+                                                <input asp-for="Question1" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label class="form-check-label" for="radio3Example1">
+                                                    YES
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input asp-for="Question1" value="0" class="form-check-input" type="radio" id="radio3Example1" />
+                                                <label class="form-check-label" for="radio3Example1">
+                                                    NO
+                                                </label>
+                                                <span asp-validation-for="Question1" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div>
+                                            <label asp-for="Question2"></label>
+                                            <div class="form-check">
+                                                <input asp-for="Question2" value="6" class="form-check-input" type="radio" id="radio3Example2" />
+                                                <label class="form-check-label" for="radio3Example2">
+                                                    YES
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input asp-for="Question2" value="0" class="form-check-input" type="radio" id="radio3Example2" />
+                                                <label class="form-check-label" for="radio3Example2">
+                                                    NO
+                                                </label>
+                                                <span asp-validation-for="Question2" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label asp-for="Question3"></label>
+                                        <div class="form-check">
+                                            <input asp-for="Question3" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                            <label class="form-check-label" for="radio3Example1">
+                                                YES
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input asp-for="Question3" value="0" class="form-check-input" type="radio" id="radio3Example1" />
+                                            <label class="form-check-label" for="radio3Example1">
+                                                NO
+                                            </label>
+                                            <span asp-validation-for="Question3" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <label asp-for="Question4"></label>
+                                        <div class="form-check">
+                                            <input asp-for="Question4" value="6" class="form-check-input" type="radio" id="radio3Example2" />
+                                            <label class="form-check-label" for="radio3Example2">
+                                                YES
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input asp-for="Question4" value="0" class="form-check-input" type="radio" id="radio3Example2" />
+                                            <label class="form-check-label" for="radio3Example2">
+                                                NO
+                                            </label>
+                                            <span asp-validation-for="Question4" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-4">
+                                            <label asp-for="Date"></label>
+                                            <input asp-for="Date" class="form-control" />
+                                            <span asp-validation-for="Date" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label asp-for="Question5"></label>
+                                        <div class="form-check">
+                                            <input asp-for="Question5" value="6" class="form-check-input" type="radio" id="radio3Example1" />
+                                            <label class="form-check-label" for="radio3Example1">
+                                                YES
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input asp-for="Question5" value="0" class="form-check-input" type="radio" id="radio3Example1" />
+                                            <label class="form-check-label" for="radio3Example1">
+                                                NO
+                                            </label>
+                                            <span asp-validation-for="Question5" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label asp-for="Question6"></label>
+                                        <div class="form-check">
+                                            <input asp-for="Question6" value="6" class="form-check-input" type="radio" id="radio3Example2" />
+                                            <label class="form-check-label" for="radio3Example2">
+                                                YES
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input asp-for="Question6" value="0" class="form-check-input" type="radio" id="radio3Example2" />
+                                            <label class="form-check-label" for="radio3Example2">
+                                                NO
+                                            </label>
+                                            <span asp-validation-for="Question6" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label asp-for="Date"></label>
+                                        <input asp-for="Date" class="form-control" />
+                                        <span asp-validation-for="Date" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-8 offset-2 row">
+                                    <div class="col">
+                                        <input type="submit" class="btn btn-info w-75 bi bi-arrow-left-circle" value="SUBMIT" />
+                                    </div>
+                                    <div class="col">
+                                        <a asp-action="IndexScree" class="btn btn-danger w-75"><i class="bi bi-arrow-left-circle"></i>BACK</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

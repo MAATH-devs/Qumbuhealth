@@ -1,0 +1,115 @@
+﻿@using Qumbu_Community_Health_Care_Center.Models
+@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Appointment>
+@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_CounsellorLayout.cshtml";
+}
+
+<div id="MainDiv">
+    <div id="Header" class="bg-info">
+        <h2 class="m-1 pt-4 text-center text-white">Counselling Records</h2>
+    </div>
+</div>
+<div class="container-fluid border p-4">
+    <a href="javascript:window.print()" id="btnPrint" class="btn btn-info">Print Report</a>
+    @*<button id="btnPrint" class="btn btn-info">View Report</button>*@
+    <div id="Information" class="row">
+        <div class="col-8">
+            @*<h4>Report Information</h4>*@
+            <img src="~/_Images/2.png" style="width:200px" />
+            <p class="mt-3">Date of Report: @ViewBag.Date</p>
+            <p class="mt-3">Time of Report: @ViewBag.Time</p>
+        </div>
+        <div class="col-4 justify-content-md-end">
+            <h4>Counsellor Information</h4>
+            <p>First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+            <p>Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+            <p>Email Address: @UserManager.GetUserAsync(User).Result.Email</p>
+        </div>
+    </div>
+        <table id="myTable" table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Patient Information
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date_Time)
+                    </th>
+                    @* <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                    </th>*@
+                   @* <th>
+                        @Html.DisplayNameFor(model => model.Purpose)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.MainUser.FirstName 
+                            @item.MainUser.LastName
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date_Time)
+                        </td>
+                        @* <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>*@
+                      @*  <td>
+                            @Html.DisplayFor(modelItem => item.Purpose)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @if (item.Status == "New")
+                            {
+                                <div class="col">
+                                    <a asp-action="CreatePat" class="btn btn-info w-75">View</a>
+                                </div>
+                            }
+
+                            @* <a asp-action="Details" asp-route-id="@item.AppointmentID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AppointmentID">Delete</a>*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>
+<script defer>
+    window.onload = function(){
+        console.log("Its working");
+        document.getElementById('Information').style.visibility = "hidden";
+
+    }
+    const Prntbtn = document.getElementById('btnPrint');
+    Prntbtn.addEventListener("click",myPrint);
+
+    function myPrint(){
+        document.getElementById('Information').style.visibility = "visible"; 
+        document.getElementById('Header').style.visibility = "hidden";
+        document.getElementById('NavbarSide').style.visibility = "hidden"; 
+        document.getElementById('sidebar').style.visibility = "hidden";
+        Prntbtn.style.visibility = "hidden";
+        window.print();
+        Prntbtn.style.visibility = "visible";
+        document.getElementById('Information').style.visibility = "hidden"; 
+        document.getElementById('Header').style.visibility = "visible";
+        document.getElementById('NavbarSide').style.visibility = "visible"; 
+        document.getElementById('sidebar').style.visibility = "visible";
+    }
+</script>

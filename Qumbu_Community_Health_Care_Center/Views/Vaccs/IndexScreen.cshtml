@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.ScreeningTool>
+
+@{
+    Layout = "Vaccs";
+}
+@if (User.IsInRole("Patient"))
+{
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2 class="text-primary">List of Avatars</h2>
+            </div>
+            @*  <div class="col-6 text-end">
+        <a asp-controller="Vaccs" asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Create New Item</a>
+        </div>*@
+        </div>
+        <br />
+
+        @if (Model.Count() > 0)
+        {
+
+            @*<table class="table table-bordered table-striped" style="width:100%">*@
+            <table class="table table-info table-hover">
+
+                <thead>
+                    <tr>
+                        <th>
+                            Question1
+                        </th>
+                        <th>
+                            Question2
+                        </th>
+                        <th>
+                            Question3
+                        </th>
+                        <th>
+                            Question4
+                        </th>
+                        <th>
+                            Question5
+                        </th>
+                        <th>
+                            Question6
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var Ava in Model)
+                    {
+                        <tr>
+                            <td width="20%">@Ava.Question1</td>
+                            <td width="20%">@Ava.Question2</td>
+                            <td width="20%">@Ava.Question3</td>
+                            <td width="20%">@Ava.Question4</td>
+                            <td width="20%">@Ava.Question5</td>
+                            <td width="20%">@Ava.Question6</td>
+
+                            @* <td>
+                <a asp-controller="Avatar" asp-action="Update" asp-route-ID="@Ava.ID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                <a asp-controller="Avatar" asp-action="Delete" asp-route-ID="@Ava.ID" class="btn btn-danger">
+                <i class="bi bi-trash3-fill"></i>Delete
+                </a>
+
+                </td>*@
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>No Avatars created yet</p>
+        }
+
+    </div>
+}
+
+

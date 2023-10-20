@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.PrenatalEducation>
+
+@{
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+<div class="container">
+        <br />
+        
+    <h1 class="display-4">Prenatal Education</h1>
+    <br/>
+    @if (User.IsInRole("Nurse"))
+    {
+        <div>
+            <a asp-controller="PrenatalCare" asp-action="CreateEducation" class="text-primary">Add Prenatal Education</a>
+        </div>
+    }
+    
+    <br />
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="@item.ImageUrl" class="img-thumbnail" />
+                    <div class="card-body">
+                        <h3 class="card-title">@item.Title</h3>
+                        <p class="card-text">@item.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a asp-controller="PrenatalCare" asp-action="EducationDetails" asp-route-ID="@item.ID" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">@item.Author</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

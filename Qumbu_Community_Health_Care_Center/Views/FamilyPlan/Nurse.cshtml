@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "_FamilyPlanLayout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+   @* <div class="mt-2 p-3 bg-white text-black rounded">
+        <h1>
+           
+            <a href="index.html"><img class="img-responsive" width="500" height="110" src="~/_Images/welcome.png" alt="#" /></a>
+            <a href="index.html"><img class="img-responsive" width="250" height="140" src="~/_Images/Fnurse.png" alt="#" /></a>
+
+        </h1>
+        
+    </div>*@
+    <style>
+        #dash-con {
+            background: rgba(213, 228, 222);
+            box-shadow: 0 8px 32px 0 rgba(21, 88, 119, 0.87);
+            backdrop-filter: blur( 0px );
+            -webkit-backdrop-filter: blur( 0px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+
+            #dash-con:hover {
+                background: rgba(60, 165, 61, 0.8);
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                backdrop-filter: blur( 20px );
+                -webkit-backdrop-filter: blur( 20px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
+            }
+    </style>
+
+
+
+    <div class="container-fluid pt-4 px-4">
+
+        <div class="row g-4">
+            <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Fbooking.png" style="width: 79px" />
+                    <a asp-controller="Appointments" asp-action="Family">
+                        <h4 class="mb-2">View Bookings<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Fscreen.png" style="width: 85px" />
+                    <a asp-controller="FamilyPlan" asp-action="ListFamilyRegNurse">
+                        <h4 class="mb-2"> Manage Screening<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class=" dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Frerral.png" style="width: 70px" />
+                    <a asp-controller="FamilyPlan" asp-action="ViewFeedback">
+                        <h4 class="mb-2">Referrals<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/Image/Message.png" style="width: 65px" />
+                    <a asp-controller="FamilyPlan" asp-action="ViewReports">
+                        <h4 class="mb-2">Reports<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+        
+    
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+    <h1>Patient</h1>
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+    <h1>Counsellor</h1>
+}

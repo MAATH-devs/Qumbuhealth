@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.HealthRecord>
+
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_LayoutPrenatal.cshtml";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <h1 class="display-4">Prenatal Education</h1>
+        <br />
+        <br />
+        <div>
+            <a asp-controller="PrenatalCare" asp-action="CreateRecord" class="text-primary">Add Health Record</a>
+        </div>
+       
+        
+    </div>
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:90%">
+            <thead>
+                <tr>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Recorded Date
+                    </th>
+                    <th>
+                        Weight
+                    </th>
+                    <th>
+                        Blood Pressure Systolic
+                    </th>
+                    <th>
+                        Blood Pressure Diastolic
+                    </th>
+                    <th>
+                        Sympthons
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var healthRecord in Model)
+                {
+                    <tr>
+                        <td width="20%">@healthRecord.UserId</td>
+                        <td width="20%">@healthRecord.RecordedDate</td>
+                        <td width="10%">@healthRecord.Weight</td>
+                        <td width="20%">@healthRecord.BloodPressureSystolic</td>
+                        <td width="20%">@healthRecord.BloodPressureDiastolic</td>
+                        <td width="10%">@healthRecord.Symptoms</td>
+                        <td width="10%">
+                            <div class="w-100 btn-group" role="group">
+                                <a asp-controller="PrenatalCare" asp-action="UpdateRecord" asp-route-ID="@healthRecord.Id" class="btn btn-primary mx-1"><i class="bi bi-pencil-square"></i>Edit</a>
+                                @* <a asp-controller="Expense" asp-action="Delete" asp-route-ID="@healthRecord.Id" class="btn btn-danger mx-1">Delete</a>
+                        *@
+                            </div>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Health Record created yet</p>
+    }
+</div>
+
+
+

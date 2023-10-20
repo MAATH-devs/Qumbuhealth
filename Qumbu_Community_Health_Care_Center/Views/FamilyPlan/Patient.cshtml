@@ -1,0 +1,170 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Appointment
+@using Qumbu_Community_Health_Care_Center.Models
+@{
+    Layout = "_FamilyPlanLayout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+   
+    <h1>Nurse</h1>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+    @*<div class="mt-2 p-3 bg-white text-black rounded">
+        <h1>
+           
+            <a href="index.html"><img class="img-responsive" width="400" height="110" src="~/_Images/welcome.png" alt="#" /></a>
+            <a href="index.html"><img class="img-responsive" width="500" height="140" src="~/_Images/1.png" alt="#" /></a>
+            <a href="index.html"><img class="img-responsive" width="250" height="140" src="~/_Images/Fnurse.png" alt="#" /></a>
+
+        </h1>
+        
+
+    </div>*@
+    <style>
+        #dash-con {
+            background: rgba(39, 178, 245, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(21, 88, 119, 0.87);
+            backdrop-filter: blur( 0px );
+            -webkit-backdrop-filter: blur( 0px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+
+            #dash-con:hover {
+                background: rgba( 0, 42, 255, 1 );
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                backdrop-filter: blur( 20px );
+                -webkit-backdrop-filter: blur( 20px );
+                border-radius: 10px;
+                border: 1px solid rgba( 255, 255, 255, 0.18 );
+            }
+    </style>
+   
+
+    <div class="container-fluid pt-4 px-4">
+
+        <div class="row g-4">
+            <div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Contr.png" style="width: 85px" />
+                    <a asp-controller="FamilyPlan" asp-action="VievContraceptives">
+                        <h5 class="mb-2">Contraceptives<span class="badge bg-primary rounded-pill text-white"></span></h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/Fscreen.png" style="width: 90px" />
+                    <a asp-controller="FamilyPlan" asp-action="CreateFamilyReg">
+                        <h5 class="mb-2">Screening<span class="badge bg-primary rounded-pill text-white"></span></h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class=" dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/FFBACK.png" style="width: 105px" />
+                    <a asp-controller="FamilyPlan" asp-action="CreateFeedback">
+                        <h5 class="mb-2">Feedback<span class="badge bg-primary rounded-pill text-white"></span></h5>
+
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+                    <img src="~/_Images/menstrualCycle.png" style="width: 70px" />
+                    <a asp-controller="FamilyPlan" asp-action="CreateMenstruation">
+                        <h5 class="mb-2">Track Menstruation<span class="badge bg-primary rounded-pill text-white"></span></h5>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+@*    <div class="col-6">
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead class="table-primary">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date_Time)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Purpose)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Appointment app in ViewBag.App)
+                {
+                    <tr>
+                        <td width="20%">@app.Date_Time</td>
+                        <td width="20%">@app.Purpose</td>
+                        <td width="20%">@app.Status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@
+
+
+
+
+   @* <head>
+        <style>
+            .image-container {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .image {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+            <a href="index.html"><img class="img-responsive" width="600" height="330" src="~/_Images/logo/FDashaboard.jpg" alt="#" /></a>
+
+            <a href="index.html"><img class="img-responsive" width="600" height="330" src="~/_Images/logo/FDashboard1.png" alt="#" /></a>
+
+        </div>
+    </body>
+
+
+    <script>
+        var typed = new typed(".auto-type", {
+            strings: ["YOU WANNA KNOW MORE ABOUT BIRTH CONTROLS?....", " CLICK ON CONTRACEPTIVE!!"]
+                typesSpeed: 30
+                backSpeed: 130
+                loop = true
+        })
+    </script>
+    <script>
+        $('.carousel').carousel()
+    </script>*@
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+    <h1>Counsellor</h1>
+}

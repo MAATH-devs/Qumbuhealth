@@ -1,0 +1,185 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Appointment
+@using Qumbu_Community_Health_Care_Center.Models
+@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (User.IsInRole("Admin"))
+{
+    Layout = "_Walk-in-Layout";
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="bg-success text-center w-100 p-3 rounded" id="tempdata" role="alert">
+            <h4 class="text-white">@TempData["Success"]</h4>
+        </div>
+    }
+    <h4>Add Appointments</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <label asp-for="PatientID" class="control-label">Patient Name</label>
+                        <select asp-for="PatientID" class="form-control">
+                            @foreach (ApplicationUser user in ViewBag.Patient)
+                            {
+                                <option value="@user.Id">@user.FirstName @user.LastName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="PatientID" class="text-danger mt-2"></span>
+                    }
+                </div>
+                <div class="form-group">
+                    <label asp-for="Purpose" class="custom-control-label"></label>
+                    <select id="PurposeDropdown" asp-for="Purpose" class="form-control" id="validationName" required>
+                        <option value="Select" class="bg-opacity-50">Select</option>
+                        <option value="Vaccination">Vaccination</option>
+                        <option value="Pre-Natal">Pre-Natal</option>
+                        <option value="Family-Planning">Family Plan</option>
+                        <option value="Counselling">Counselling</option>
+                    </select>
+                    <span asp-validation-for="Purpose" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date_Time" class="custom-control-label"></label>
+                    <input asp-for="Date_Time" class="form-control" />
+                    <span asp-validation-for="Date_Time" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group p-2">
+                    <input type="submit" class="btn btn-info" value="Book" />
+                </div>
+            </form>
+
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead class="table-primary">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date_Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Purpose)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Appointment app in ViewBag.App)
+                    {
+                        <tr>
+                            @* <td width="20%">@app.MainUser.FirstName (@app.MainUser.LastName) </td> *@
+
+                            @* <td width="20%">@app.Name</td>
+                    <td width="20%">@app.Surname</td> *@
+                            <td width="20%">@app.CreatedAt</td>
+                            <td width="20%">@app.Date_Time</td>
+                            <td width="20%">@app.Purpose</td>
+                            <td width="20%">@app.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <br />
+    @if (User.IsInRole("Admin"))
+    {
+        <div>
+            <a asp-action="All_Appointments" class="btn btn-info">Show list</a>
+        </div>
+    }
+
+}
+else
+{
+
+    Layout = "_Landing2";
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="bg-success text-center w-100 p-3 rounded" id="tempdata" role="alert">
+            <h4 class="text-white">@TempData["Success"]</h4>
+        </div>
+    }
+    <h4>Add Appointments</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
+                <div class="form-group">
+                    <label asp-for="Purpose" class="custom-control-label"></label>
+                    <select id="PurposeDropdown" asp-for="Purpose" class="form-control" id="validationName" required>
+                        <option value="Select" class="bg-opacity-50">Select</option>
+                        <option value="Vaccination">Vaccination</option>
+                        <option value="Pre-Natal">Pre-Natal</option>
+                        <option value="Family-Planning">Family Plan</option>
+                        <option value="Counselling">Counselling</option>
+                    </select>
+                    <span asp-validation-for="Purpose" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date_Time" class="custom-control-label"></label>
+                    <input asp-for="Date_Time" class="form-control" />
+                    <span asp-validation-for="Date_Time" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Book" />
+                </div>
+            </form>
+
+        </div>
+        <div class="col-6">
+            <table class="table table-bordered table-striped" style="width:100%">
+                <thead class="table-primary">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date_Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Purpose)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Appointment app in ViewBag.App)
+                    {
+                        <tr>
+                            <td width="20%">@app.Date_Time</td>
+                            <td width="20%">@app.Purpose</td>
+                            <td width="20%">@app.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    }
+
+}
+
+
+
+

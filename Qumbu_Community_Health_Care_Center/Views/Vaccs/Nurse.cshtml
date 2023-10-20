@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "Vaccs";
+}
+@if (User.IsInRole("Nurse"))
+{
+    <div class="mt-2 p-3 bg-white text-black rounded">
+        <h1>
+
+            @*         <a href="index.html"><img class="img-responsive" width="500" height="110" src="~/_Images/Vaccs/VaccsGIF.jpg" alt="#" /></a>
+        *@@*         <a href="index.html"><img class="img-responsive" width="250" height="140" src="~/_Images/Fnurse.png" alt="#" /></a>
+        *@
+        </h1>
+        <p class="align-text-bottom"><h1>WELCOME TO THE VACCINATION DASHBOARD</h1></p><span class="auto-type"></span>
+
+    </div>
+    <head>
+        <style>
+            .image-container {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .image {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-6">
+                <div class="container mt-3">
+                    <div class="card" style="width: 29rem;">
+                        <div class="card-body">
+                            <div class="p_info_img">
+                                <img src="~/_Images/Vaccs/Vaccs AWARE2.webp" class="img-thumbnail" alt="#" />
+                            </div>
+                            <p class="align-text-bottom"><h1>STAY SAFE , STAY PROTECTED, STAY VACCINATED</h1></p><span class="auto-type"></span>
+
+                            @*<button>
+                        <h5><a class="nav-link text-dark" asp-area="" asp-controller="Vaccs" asp-action="Patient">REPORTS</a></h5>
+                        </button>*@
+                            @* <h5 class="card-title">REPORTS </h5>*@
+                            <div class="d-flex align-items-center">
+                                <span class="bi bi-file-earmark-person fs-1 me-3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="container mt-3">
+                    <div class="card" style="width: 29rem;">
+                        <div class="card-body">
+                            <div class="p_info_img">
+                                <img src="~/_Images/Vaccs/VaccsGIF.jpg" class="img-thumbnail" alt="#" />
+                            </div>
+                            <p class="align-text-bottom"><h1>TALK TO YOUR FRIENDS AND FAMILY ABOUT GETTTING VACCINATED</h1></p><span class="auto-type"></span>
+                            <div class="d-flex align-items-center">
+                                <span class="bi bi-file-earmark-person fs-1 me-3"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @* <div class="image-container ">
+    <a href="index.html"><img class="img-responsive" width="600" height="330" src="~/_Images/Vaccs/Vaccs AWARE2.webp" alt="#" /></a>
+
+    <a href="index.html"><img class="img-responsive" width="600" height="330" src="~/_Images/Vaccs/VaccsGIF.jpg" alt="#" /></a>
+
+    </div>*@
+    </body>
+}

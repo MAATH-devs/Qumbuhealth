@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "_CounsellorLayout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+    <h1>Nurse</h1>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+          <br/>
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="SearchStyle.css">
+    </head>
+    <body>
+        @*<div class="search-container align-centre">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="button" id="search-button">Search</button>
+        </div>
+
+        <div id="search-results">
+
+        </div>*@
+
+        <script src="script.js"></script>
+    </body>
+    </html>
+ 
+<br />
+    <head>
+        <style>
+            .single-line-h2 {
+                display: inline; /* or display: inline-block; */
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <h2 class="single-line-h2">Are you emotionally struggling?? Worry not!! Welcome to our "peace of mind" office</h2>
+    </body>
+<br />
+   @* <a href="index.html"><img class="img-responsive" width ="1000" height="200" src="~/_Images/book.jpg" alt="#" /></a>*@
+    <div class="text-primary">
+        <br>
+       @* <h2 class="text-md-center">All this for you!!!</h2>*@
+    </div>
+    <br />
+    <head>
+        <style>
+            .image-container {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .image {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+            <a href="index.html"><img class="img-responsive" height="514" src="~/_Images/counsellor2.jpg" alt="#" /></a>
+
+            <a href="index.html"><img class="img-responsive" src="~/_Images/counseller1.jpg" alt="#" /></a>
+
+        </div>
+    </body>
+   
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+  
+}

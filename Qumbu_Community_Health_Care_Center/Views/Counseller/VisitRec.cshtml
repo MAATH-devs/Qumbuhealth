@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Profiling>
+@{
+    Layout = "_CounsellorLayout";
+}
+<div id="Header" class="bg-info">
+    <h2 class="m-1 pt-4 text-center text-white">Visit Logs</h2>
+</div>
+<div class="container-fluid bg-white border p-4">
+    <br />
+    <div class="col-6 text-left">
+        <a asp-controller="Counseller" asp-action="CreatePat" class="btn btn-info">Start Counselling</a>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table id="myTable" table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        VisitPurpose
+                    </th>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                   @* <th>
+                        Action
+                    </th>*@
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var v in Model)
+                {
+                    <tr>
+                        <td width="20%">@v.VisitPurpose</td>
+                        <td width="20%">
+                            @v.FirstName
+                            @v.LastName
+                        </td>
+                        <td width="20%">@v.Date</td>
+                       @* <td>
+                            <div class="w-50 btn-group" role="group">
+                                <a asp-controller="Counseller" asp-action="Delete" asp-route-ID="@pro.ProfileID" class="btn btn-primary mx-1">View</a>
+                            </div>
+                        </td>*@
+                    </tr>
+
+
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>Nothing to show yet</p>
+    }
+
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "ListFamilyRegNurse";
+    Layout = "~/Views/Shared/_FamilyPlanLayout.cshtml";
+}
+@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.FamilyReg>
+
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"></h2>
+        </div>
+
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+
+        <table class="table  table-active table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        Birth Control Method
+                    </th>
+                    <th>
+                        
+                    </th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var fed in Model)
+                {
+                    <tr>
+                        <td width="20%">@fed.MainUser.FirstName @fed.MainUser.LastName</td>
+                        <td width="20%">@fed.Date</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => fed.Status)
+                        </td>
+
+                        <td width="20%">
+                            @if (TempData["Result"] != null)
+                            {
+                                
+                            }
+                        </td>
+                        @if (fed.Status == "New")
+                        {
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal-@fed.FamilyRegId">
+                                    Accept
+                                </button>|
+                                <a asp-action="Details" asp-route-id="@fed.FamilyRegId">Decline</a>|
+                                <a asp-action="Delete" asp-route-id="@fed.FamilyRegId">Postpone</a>
+                            </td>
+                            <div class="modal fade" id="exampleModal-@fed.FamilyRegId" tabindex="-1" aria-labelledby="exampleModalLabel-@fed.FamilyRegId" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel-@fed.FamilyRegId">Confirm acceptance</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                           Do you want to proccesd?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a asp-action="AcceptReg" asp-route-id="@fed.FamilyRegId" button type="button" class="btn btn-primary">Proceed</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-6 text-right  d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-controller="FamilyPlan" asp-action="CreateFamilyReg" class="btn btn-outline-info">Back</a>
+        </div>
+
+    }
+    else
+    {
+        <p>No Chat added yet</p>
+    }
+
+</div>
+<script src="~/js/site.js"></script>
+

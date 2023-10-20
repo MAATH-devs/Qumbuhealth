@@ -1,0 +1,212 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.ScreeningTool>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">List of your screenings</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Vaccs" asp-action="Screen" class="btn btn-primary"><i class="bi bi-plus-circle"></i> SCREEN YOURSELF</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        @*<table class="table table-bordered table-striped" style="width:100%">*@
+        <table class="table table-info table-hover">
+
+            <thead>
+                <tr>
+                    <th>
+                        Patient
+                    </th>
+                    <th>
+                        Question1
+                    </th>
+                    <th>
+                        Question2
+                    </th>
+                    <th>
+                        Question3
+                    </th>
+                    <th>
+                        Question4
+                    </th>
+                    <th>
+                        Question5
+                    </th>
+                    <th>
+                        Question6
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var Scree in Model)
+                {
+                    <tr>
+                        
+                        <td width="20%">
+                            @if (Scree.Question1 == 6)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.Question2 == 6)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.Question3 == 0)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.Question4 == 0)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.Question5 == 0)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">
+                            @if (Scree.Question6 == 0)
+                            {
+                                <p>yes</p>
+                            }
+                            else
+                            {
+                                <p>no</p>
+                            }
+                        </td>
+                        <td width="20%">@Scree.Date</td>
+
+                        <td>
+                            <a asp-controller="Vaccs" asp-action="Update" asp-route-ID="@Scree.ScreeningID" class="btn btn-primary"><i class="bi bi-arrow-repeat"></i>Update</a>
+
+                            <a asp-controller="Vaccs" asp-action="Delete" asp-route-ID="@Scree.ScreeningID" class="btn btn-danger">
+                                <i class="bi bi-trash3-fill"></i>Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>No Avatars created yet</p>
+    }
+
+</div>
+
+
+@* <div class="mx-0 mx-sm-auto" >
+    <div class="card w-75" >
+        <div class="card-body bg-primary" >
+<form method="post" asp-action="IndexScree">
+    <input asp-for="ID" hidden />
+                <div class="bg-info ">
+        <div class="form-group row">
+            <h2 class="text-opacity-50 center pl-3">SCREENING TOOL</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <div class="col-6">
+                       
+                         
+                        <h4 class="text-justify"><label asp-for="Question1"></label></h4>
+          
+                        <input asp-for="Question1" class="form-control w-50 " />
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-justify"><label asp-for="Question2"></label></h4>
+                        <input asp-for="Question2" class="form-control w-50 " />
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-justify"><label asp-for="Question3"></label></h4>
+                        <input asp-for="Question3" class="form-controla w-50" />
+                    </div>
+                    <div class="col-4">
+                        <h4 class="text-justify"><label asp-for="Question4"></label></h4>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox"  id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify " for="flexSwitchCheckDefault">YES</label></h4>
+                        </div>
+                        <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify" for="flexSwitchCheckDefault">NO</label></h4>
+                        </div>
+                       
+
+                    </div>
+                    <div class="col-4">
+                        <h4 class="text-justify"><label asp-for="Question5"></label></h4>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input text-justify" type="checkbox" id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify" for="flexSwitchCheckDefault">YES</label></h4>
+                        </div>
+                        <div row="" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify" for="flexSwitchCheckDefault">NO</label></h4>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <h4 class="text-justify"><label asp-for="Question6"></label></h4>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify" for="flexSwitchCheckDefault">YES</label></h4>
+                         </div>
+                        <div row="" class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"><h4><label class="form-check-label text-justify" for="flexSwitchCheckDefault">NO</label></h4>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-8 offset-2 row">
+                            
+                            <div class="col">
+                                <a asp-action="Dashboard" class="btn btn-success w-40">DONE</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</form>
+        </div>
+    </div>
+</div> *@

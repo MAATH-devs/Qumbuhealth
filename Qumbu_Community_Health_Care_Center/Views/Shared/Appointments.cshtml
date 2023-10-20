@@ -1,0 +1,316 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Qumbu_Community_Health_Care_Center.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Dashborad</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- site icon -->
+    <link rel="icon" href="~/images/images/fevicon.png" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/css/css/css/css/bootstrap.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="~/css/css/css/css/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/css/css/css/css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="~/css/css/css/css/colors.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="~/css/css/css/css/bootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="~/css/css/css/css/perfect-scrollbar.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/css/css/css/css/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+@*<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div*@>
+<body class="dashboard dashboard_1">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            @*<a href="index.html"><img class="logo_icon img-responsive" src="~/images/images/logo/logo_icon.png" alt="#" /></a>*@
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="~/_Images/3.png" alt="#" /></div>
+                            <div class="user_info">
+                                @* <h6>@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</h6>*@
+                                @*<p><span class="online_animation"></span> Online</p>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>MENU</h4>
+                    <ul class="list-unstyled components">
+
+                        @if (User.IsInRole("Counsellor"))
+                        {
+                            <li><a asp-controller="Home" asp-action="Landing2" class="sidebar-link"> <span>Departments</span></a></li>
+                            <li class="active">
+                                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-folder2"></i> <span>Appointments</span></a>
+                                <ul class="collapse list-unstyled" id="dashboard">
+                                    @*<li>
+                                <a asp-controller="Counseller" asp-action="Create" class="sidebar-link">
+                                <span>Booking</span>
+                                </a>
+                                </li>*@
+                                    <li>
+                                        <a asp-controller="Counseller" asp-action="Booking" class="sidebar-link">
+                                            <span>View</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Counseller" asp-action="Booking" class="sidebar-link"> <span>Cancel</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            @*<li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>*@
+                            <li>
+                                @* <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i><i class="bi bi-clipboard2-plus-fill"></i> <span>Files</span></a>*@
+                                <ul class="collapse list-unstyled" id="element">
+                                    @* <li> <a asp-controller="Counseller" asp-action="CreateR" class="sidebar-link"> <span>Submit form</span></a></li>
+                                <li><a asp-controller="Counseller" asp-action="PatientC" class="sidebar-link"> <span>View</span></a></li>
+                                <li><a asp-controller="Counseller" asp-action="Update" class="sidebar-link"> <span>Update Details</span></a></li>*@
+                                    @*<li><a href="invoice.html">> <span>Invoice</span></a></li>*@
+                                </ul>
+                            </li>
+                            @*<li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>*@
+                            <li>
+                                @* <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i><i class="bi bi-person-fill-check"></i> <span>Referrals</span></a>*@
+                                <ul class="collapse list-unstyled" id="apps">
+                                    @* <li><a asp-controller="Counseller" asp-action="Referral" class="sidebar-link"> <span>View</span></a></li>*@
+                                    @* <li><a asp-controller="Counseller" asp-action="CreateF" class="sidebar-link"> <span>Referr</span></a></li>*@
+                                    @* <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>*@
+                                </ul>
+                            </li>
+
+                            @*<li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>*@
+                            <li>
+                                @* <a href="contact.html">
+                            <i class="fa fa-paper-plane red_color"></i> <span>Contact</span>
+                            </a>*@
+                            </li>
+                            <li class="active">
+                                @* <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i><i class="bi bi-reception-3"></i> <span>Ratings</span></a>*@
+                                <ul class="collapse list-unstyled" id="additional_page">
+                                    <li>
+                                        @* <a href="profile.html"> <span>Rate</span></a*@>
+                                    </li>
+                                    <li>
+                                        @* <a href="project.html">> <span>Projects</span></a>*@
+                                    </li>
+                                    <li>
+                                        @*<a href="login.html">> <span>Login</span></a>*@
+                                    </li>
+                                    <li>
+                                        @*<a href="404_error.html">> <span>404 Error</span></a>*@
+                                    </li>
+                                </ul>
+                            </li>
+                            @* <li><a asp-controller="Counseller" asp-action="Reports" class="sidebar-link"><i class="fa fa-briefcase blue1_color"></i><i class="bi bi-envelope-plus"></i> <span>Reports</span></a></li>*@
+                            <li class="sidebar-item">
+                                @* <a asp-controller="Counseller" asp-action="Reports" class="sidebar-link">
+                            <i class="align-middle"></i><img class="img-responsive" width="40" height="40" src="~/_Images/social-network_3705640.png" alt="#" /> <span class="align-middle">Report</span>
+                            </a>*@
+                            </li>
+
+                            <li>
+                                @* <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Settings</span></a>
+                            <ul class="collapse list-unstyled" id="set">
+                            <li><a href="emai.html">> <span>Logout</span></a></li>
+                            <li><a href="calendar.html">> <span>Referr</span></a></li>
+                            <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+                            </ul*@
+                            </li>
+                        }
+                        @if (User.IsInRole("Patient"))
+                        {
+                            <li><a asp-controller="Home" asp-action="Landing2" class="sidebar-link"> <span>Departments</span></a></li>
+                            <li class="active">
+                                <a href="#dashboard" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bi bi-folder2"></i> <span>Appointments</span></a>
+                                <ul class="collapse list-unstyled" id="dashboard">
+                                    <li>
+                                        <a asp-controller="Counseller" asp-action="Booking" class="sidebar-link">
+                                            <span>View</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Counseller" asp-action="Booking" class="sidebar-link"> <span>Cancel</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            @*<li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>*@
+                            <li>
+                               @* <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i><i class="bi bi-clipboard2-plus-fill"></i> <span>Files</span></a>*@
+                                <ul class="collapse list-unstyled" id="element">
+                                   @* <li> <a asp-controller="Counseller" asp-action="CreateR" class="sidebar-link"> <span>Submit form</span></a></li>
+                                    <li><a asp-controller="Counseller" asp-action="PatientC" class="sidebar-link"> <span>View</span></a></li>
+                                    <li><a asp-controller="Counseller" asp-action="Update" class="sidebar-link"> <span>Update Details</span></a></li>*@
+                                    @*<li><a href="invoice.html">> <span>Invoice</span></a></li>*@
+                                </ul>
+                            </li>
+                            @*<li><a href="tables.html"><i class="fa fa-table purple_color2"></i> <span>Tables</span></a></li>*@
+                            <li>
+                               @* <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i><i class="bi bi-person-fill-check"></i> <span>Referrals</span></a>*@
+                                <ul class="collapse list-unstyled" id="apps">
+                                   @* <li><a asp-controller="Counseller" asp-action="Referral" class="sidebar-link"> <span>View</span></a></li>*@
+                                    @* <li><a asp-controller="Counseller" asp-action="CreateF" class="sidebar-link"> <span>Referr</span></a></li>*@
+                                    @* <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>*@
+                                </ul>
+                            </li>
+
+                            @*<li><a href="price.html"><i class="fa fa-briefcase blue1_color"></i> <span>Pricing Tables</span></a></li>*@
+                            <li>
+                                @* <a href="contact.html">
+                            <i class="fa fa-paper-plane red_color"></i> <span>Contact</span>
+                            </a>*@
+                            </li>
+                            <li class="active">
+                               @* <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-clone yellow_color"></i><i class="bi bi-reception-3"></i> <span>Ratings</span></a>*@
+                                <ul class="collapse list-unstyled" id="additional_page">
+                                    <li>
+                                       @* <a href="profile.html"> <span>Rate</span></a*@>
+                                    </li>
+                                    <li>
+                                        @* <a href="project.html">> <span>Projects</span></a>*@
+                                    </li>
+                                    <li>
+                                        @*<a href="login.html">> <span>Login</span></a>*@
+                                    </li>
+                                    <li>
+                                        @*<a href="404_error.html">> <span>404 Error</span></a>*@
+                                    </li>
+                                </ul>
+                            </li>
+                           @* <li><a asp-controller="Counseller" asp-action="Reports" class="sidebar-link"><i class="fa fa-briefcase blue1_color"></i><i class="bi bi-envelope-plus"></i> <span>Reports</span></a></li>*@
+                            <li class="sidebar-item">
+                                @* <a asp-controller="Counseller" asp-action="Reports" class="sidebar-link">
+                            <i class="align-middle"></i><img class="img-responsive" width="40" height="40" src="~/_Images/social-network_3705640.png" alt="#" /> <span class="align-middle">Report</span>
+                            </a>*@
+                            </li>
+
+                            <li>
+                                @* <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-object-group blue2_color"></i> <span>Settings</span></a>
+                            <ul class="collapse list-unstyled" id="set">
+                            <li><a href="emai.html">> <span>Logout</span></a></li>
+                            <li><a href="calendar.html">> <span>Referr</span></a></li>
+                            <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
+                            </ul*@
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <div class="container-fluid">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+                <!-- topbar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <div class="order-last nav-item">
+                            </div>
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="bi bi-list"></i></button>
+                            @* <div class="logo_section">
+                            <a href="index.html"><img class="img-responsive" src="~/images/images/logo/logo.png" alt="#" /></a>
+                            </div>*@
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    @*<ul>
+                                    <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                    <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>*@
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <div class="order-last nav-item">
+                                            </div>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="~/images/Profile-Photo.png" alt="#" /><span class="text-dark">@UserManager.GetUserAsync(User).Result.FirstName  @UserManager.GetUserAsync(User).Result.LastName</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">My Profile</a>
+                                                <a class="dropdown-item" href="settings.html">Settings</a>
+                                                <a class="dropdown-item" href="help.html">Help</a>
+                                                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                                    <button id="logout" type="submit" class="btn btn-secondary">Logout</button>
+                                                </form>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="row">
+
+
+
+                        <!-- end dashboard inner -->
+                    </div>
+                </div>
+            </div>
+            <!-- jQuery -->
+            <script src="~/js/js/jquery.min.js"></script>
+            <script src="~/js/js/popper.min.js"></script>
+            <script src="~/js/bootstrap.min.js"></script>
+            <!-- wow animation -->
+            <script src="~/js/js/animate.js"></script>
+            <!-- select country -->
+            <script src="~/js/js/bootstrap-select.js"></script>
+            <!-- owl carousel -->
+            <script src="~/js/js/owl.carousel.js"></script>
+            <!-- chart js -->
+            <script src="~/js/js/Chart.min.js"></script>
+            <script src="~/js/js/Chart.bundle.min.js"></script>
+            <script src="~/js/js/utils.js"></script>
+            <script src="~/js/js/analyser.js"></script>
+            <!-- nice scrollbar -->
+            <script src="~/js/js/perfect-scrollbar.min.js"></script>
+            <script>
+                var ps = new PerfectScrollbar('#sidebar');
+            </script>
+            <!-- custom js -->
+            <script src="~/js/js/custom.js"></script>
+            <script src="~/js/js/chart_custom_style1.js"></script>
+</body>
+</html>
+
+
+

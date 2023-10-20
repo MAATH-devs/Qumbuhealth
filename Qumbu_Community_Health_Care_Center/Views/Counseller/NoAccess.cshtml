@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "_CounsellorLayout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+    <br />
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Referral Card</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            .content-container {
+                border: 2px solid blue;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+            }
+
+            .icon {
+                font-size: 36px;
+                margin-right: 15px;
+            }
+
+            .border-column {
+                border-right: 8px solid blue;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <br>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div> <!-- Empty column for alignment -->
+                <div class="col-md-6">
+                    <div class="content-container">
+                        <i class="bi bi-card-heading icon"></i>
+                        <div>
+                            <h2 class="mb-3">Referral Card <img src="~/_Images/3.png" width="100" height="100" alt="#"></h2>
+                            <p><strong>Patient:</strong> Oyama Sodo</p>
+                            <p><strong>Referral Date:</strong> 22/08/23</p>
+                            <p><strong>Appointment Date:</strong> 24/08/23</p>
+                            <p><strong>Department Reffered To:</strong> Vaccination</p>
+                            <p><strong>Refferred By:</strong> Dr S Tshangisa</p>
+                            <p><strong>Comments:</strong> </p>
+                            <p class="mt-3">
+                                Please attend to the patient immediately
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="col-md-2 border-column"></div> <!-- Border column -->
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css"></script>
+    </body>
+    </html>
+  
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor has no access here please restrict you side bar fuctionalities</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+    <h1>Patient</h1>
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager has no access here please restrict you side bar fuctionalities</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+    <h1>Counsellor</h1>
+}

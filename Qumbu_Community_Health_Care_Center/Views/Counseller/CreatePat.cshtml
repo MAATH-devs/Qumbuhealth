@@ -1,0 +1,77 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.Profiling
+@{
+	Layout = "_CounsellorLayout";
+}
+<div id="Header" class="bg-info">
+    <h2 class="m-1 pt-4 text-center text-white">Patient Details</h2>
+</div>
+<div class="container-fluid bg-white border p-4">
+	<form method="post" asp-action="CreatePat">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="row">
+			<div class="card" style="width: 18rem; height: 250px">
+				<img class="img-responsive rounded-circle" width="210" height="2121qqqa098o090-[90909090" src="~/images/Profile-Photo.png" alt="#" />
+			</div>
+			<div class="card" style="width: 18rem; height: 250px">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="memberName">Counselling Remarks:</label>
+						@*<input type="text" class="form-control" id="memberName" placeholder=" ">*@
+					</div>
+					
+					<div class="form-group col">
+						<div class="col-4 offset-2 row">
+							<div class="col">
+								<a asp-action="CreateConf" class="btn btn-info w-60">View History</a>
+							</div>
+							<br />
+							<div class="col">
+								<a asp-action="CreateRe" class="btn btn-info w-60">Start Counselling</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<br />
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="validityPeriod">First Name</label>
+                    <select id="PatientName" asp-for="FirstName" class="form-control" id="validationName" required>
+                        <option value="Select" class="bg-opacity-50">Select</option>
+                        <option value="Unako">Unako</option>
+                        <option value="Liso">Liso</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="validityPeriod">Visit Purpose</label>
+                    <select id="Departments" asp-for="VisitPurpose" class="form-control" id="validationName" required>
+                        <option value="Select" class="bg-opacity-50">Select</option>
+                        <option value="Excuse">Excuse Letter</option>
+                        <option value="Clearance">Clearance Letter</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-3">
+            <label asp-for="Date"></label>
+            <input asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            
+        </div>
+        <br />
+        <div class="form-group row">
+            <div class="col-6 offset-2 row">
+                <div class="col">
+                    <input value="Submit"  type="submit" class="btn btn-info w-75"/>
+                </div>
+                <div class="col">
+                    <a asp-action="CreatePat" class="btn btn-info w-75">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

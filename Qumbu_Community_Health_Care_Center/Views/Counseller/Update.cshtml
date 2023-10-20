@@ -1,0 +1,308 @@
+﻿@model Qumbu_Community_Health_Care_Center.Models.PatientReg
+@{
+    Layout = "_CounsellorLayout";
+}
+
+<form method="post" asp-action="Update">
+    <input asp-for="PatientRegId" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">If you are new, please register</h2>
+        </div>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <h5 class="card-title">Peronal Details</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="memberName">Full Names</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter your names">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="memberName">Cell</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter your cell no">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="memberName">Email</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="validityPeriod">Gender</label>
+                                <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Gender" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="dateOfBirth">D.O.B</label>
+                                <input type="date" class="form-control" id="dateOfBirth">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <textarea class="form-control" id="address" rows="4" placeholder="Enter Address"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="validityPeriod">Marital Status</label>
+                                <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Status" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Devorced">Devorced</option>
+                                        <option value="Widow">Widow</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="validityPeriod">Province</label>
+                                <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Province" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="Province">Eastern Cape</option>
+                                        <option value="Province">Mpumalanga</option>
+                                        <option value="Province">Gauteng</option>
+                                        <option value="Province">Free State</option>
+                                        <option value="Province">North West</option>
+                                        <option value="Province">Kwazulu-Natal</option>
+                                        <option value="Province">Western Cape</option>
+                                        <option value="Province">Northen Cape</option>
+                                        <option value="Province">Limpopo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="validityPeriod">Race</label>
+                                <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Race" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="Race">Black</option>
+                                        <option value="Race">White</option>
+                                        <option value="Race">Indian</option>
+                                        <option value="Race">Colored</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header  bg-secondary">
+                    <h5 class="card-title">Next of Kin</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="memberName">Next of kin's Names</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter Names">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="memberName">Cell</label>
+                                <input type="text" class="form-control" id="memberName" placeholder="Enter Cell no">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <textarea class="form-control" id="address" rows="4" placeholder="Enter address"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="validityPeriod">Province</label>
+                                <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Province" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="Province">Eastern Cape</option>
+                                        <option value="Province">Mpumalanga</option>
+                                        <option value="Province">Gauteng</option>
+                                        <option value="Province">Free State</option>
+                                        <option value="Province">North West</option>
+                                        <option value="Province">Kwazulu-Natal</option>
+                                        <option value="Province">Western Cape</option>
+                                        <option value="Province">Northen Cape</option>
+                                        <option value="Province">Limpopo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Relationship</label>
+                            <div class="input-group">
+                                <select id="GenderDropdown" asp-for="Relationship" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Select</option>
+                                    <option value="rel">Mother</option>
+                                    <option value="rel">Father</option>
+                                    <option value="rel">Brother</option>
+                                    <option value="rel">Gaurdian</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <h5 class="card-title">Health Information</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Referral Source</label>
+                            <div class="input-group">
+                                <select id="GenderDropdown" asp-for="Source" class="form-control" id="validationName" required>
+                                    <option value="Select" class="bg-opacity-50">Select</option>
+                                    <option value="s">Friends</option>
+                                    <option value="s">Relative</option>
+                                    <option value="s">Teacher</option>
+                                    <option value="s">Nurse</option>
+                                    <option value="s">Other</option>
+                                </select>
+                            </div>
+                             
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Previous Counselling Experience</label>
+                            <div class="input-group">
+                                    <select id="GenderDropdown" asp-for="Experience" class="form-control" id="validationName" required>
+                                        <option value="Select" class="bg-opacity-50">Select</option>
+                                        <option value="e">Yes</option>
+                                        <option value="e">No</option>
+                                       
+                                    </select>
+                            </div>
+                               
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Medical & Mental Health</label>
+                            <div class="input-group">
+                                        <select id="GenderDropdown" asp-for="Health" class="form-control" id="validationName" required>
+                                            <option value="Select" class="bg-opacity-50">Select</option>
+                                            <option value="e">Not Healthy</option>
+                                            <option value="h">Neutral</option>
+                                            <option value="h">Other</option>
+
+                                        </select>
+                            </div>
+                              
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Current Medication</label>
+                            <div class="input-group">
+                                            <select id="GenderDropdown" asp-for="Medication" class="form-control" id="validationName" required>
+                                                <option value="Select" class="bg-opacity-50">Select</option>
+                                                <option value="e">Yes</option>
+                                                <option value="e">No</option>
+
+                                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address">Family History</label>
+                            <textarea class="form-control" id="address" rows="4" placeholder="Enter your history"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Preferred Communication & Consent</label>
+                            <div class="input-group">
+                                        <select id="GenderDropdown" asp-for="Communication" class="form-control" id="validationName" required>
+                                            <option value="Select" class="bg-opacity-50">Select</option>
+                                            <option value="c">Call</option>
+                                            <option value="c">SMS</option>
+                                            <option value="c">Email</option>
+                                            <option value="c">In Person</option>
+                                            <option value="c">Other</option>
+                                        </select>
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validityPeriod">Current Stressors</label>
+                            <div class="input-group">
+                                        <select id="GenderDropdown" asp-for="CurrentStressors" class="form-control" id="validationName" required>
+                                            <option value="Select" class="bg-opacity-50">Select</option>
+                                            <option value="c">Family</option>
+                                            <option value="c">Money</option>
+                                            <option value="c">School</option>
+                                            <option value="c">Health</option>
+                                            <option value="c">Other</option>
+                                        </select>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-8 offset-2 row">
+            <div class="col">
+                <input type="submit" class="btn btn-info w-75" value="Update" />
+            </div>
+            <div class="col">
+                <a asp-action="Patient" class="btn btn-danger w-75">Back</a>
+            </div>
+        </div>
+    </div>
+
+</form>
+

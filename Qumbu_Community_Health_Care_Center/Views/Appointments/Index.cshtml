@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Qumbu_Community_Health_Care_Center.Models.Appointment>
+@{
+    Layout = "_Landing2";
+}
+<div class="mt-2 p-2 bg-white text-center text-white-50 rounded">
+    <h2>List of Appointments</h2>
+</div>
+<div class="container-fluid">
+    <div class="row pt-4">
+        <div class="col-6 text-right">
+            <a asp-controller="Appointments" asp-action="Create" class="btn btn-info">New Appointment</a>
+        </div>
+    </div>
+    <br />
+     <table class="table table-bordered table-striped" style="width:100%">
+            <thead class="table-primary">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MainUser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedAt)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date_Time)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Purpose)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var app in Model)
+        {
+                <tr>
+                    <td>
+                        @app.MainUser.FirstName
+                        @app.MainUser.LastName
+                    </td>
+                    <td width="20%">@app.CreatedAt</td>
+                    <td width="20%">@app.Date_Time</td>
+                    <td width="20%">@app.Purpose</td>
+                    <td width="20%">@app.Status</td>
+                        
+                </tr>
+         }
+        </tbody>
+        </table>
+</div>
+
+
+
+
+
+
+

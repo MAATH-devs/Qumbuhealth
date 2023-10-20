@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Walk-in-Layout";
+}
+@if (User.IsInRole("Admin"))
+{
+    <h1>Admin</h1>
+}
+@if (User.IsInRole("Nurse"))
+{
+    <h1>Nurse</h1>
+}
+@if (User.IsInRole("Doctor"))
+{
+    <h1>Doctor</h1>
+}
+@if (User.IsInRole("Patient"))
+{
+    <h1>Patient has no access here please restrict you side bar fuctionalities</h1>
+}
+@if (User.IsInRole("Unit-Manager"))
+{
+    <h1>Manager has no access here please restrict you side bar fuctionalities</h1>
+}
+@if (User.IsInRole("Counsellor"))
+{
+    <h1>Counsellor has no access here please restrict you side bar fuctionalities</h1>
+}
